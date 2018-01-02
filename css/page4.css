@@ -1,0 +1,91 @@
+body {
+  background-color: white;
+  padding-bottom: 70px;
+  font: 1em "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  line-height: 1.5em;
+  color: #585266;
+}
+h1 {
+  margin-top: 50px;
+  text-align: center;
+}
+.level {
+  position: relative;
+  width: 6em;
+  height: 6em;
+  margin: 30%;
+  border-radius: 10%;
+  background-color: #c3bfa1;
+  overflow: hidden;
+  margin: 0px auto;
+}
+.level::after, .level::before {
+  content: '';
+  position: absolute;
+  border-radius: 10%;
+  border: 3em solid transparent;
+}
+.level.easyLevel::after {
+  border-top: 3em solid transparent;
+  border-left: 3em solid transparent;
+  border-right: 3em solid transparent;
+  border-bottom: 3em solid #02d6a4;
+}
+.level.averageLevel::after {
+  border-top: 3em solid transparent;
+  border-left: 3em solid #00ac99;
+  border-right: 3em solid transparent;
+  border-bottom: 3em solid #02d6a4;
+}
+.level.difficultLevel::after {
+  border-top: 3em solid #e27161;
+  border-left: 3em solid #00ac99;
+  border-right: 3em solid transparent;
+  border-bottom: 3em solid #02d6a4;
+}
+.level.hardLevel::after {
+  border-top: 3em solid #e27161;
+  border-left: 3em solid #00ac99;
+  border-right: 3em solid #cd002f;
+  border-bottom: 3em solid #02d6a4;
+}
+
+
+.animate
+{
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+}
+
+
+.action-button
+{
+    position: absolute;
+    top: 900px;
+    left: 20px;
+    padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+    float: left;
+    border-radius: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    color: #FFF;
+    text-decoration: none;  
+}
+
+
+.green
+{
+    background-color: #82BF56;
+    border-bottom: 5px solid #669644;
+    text-shadow: 0px -2px #669644;
+}
+
+.anchor
+{
+  position: relative;
+  left: 620px;
+  display: inline-block;
+  height: 96px;
+  max-width: 96px;
+}
