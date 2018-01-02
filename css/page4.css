@@ -1,11 +1,16 @@
 body {
   background-color: white;
   padding-bottom: 70px;
-  font: 1em "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font: 1em "Helvetica Neue", cursive;
   line-height: 1.5em;
   color: #585266;
 }
+
 h1 {
+  margin-top: 25px;
+  text-align: center;
+}
+h2 {
   margin-top: 50px;
   text-align: center;
 }
@@ -51,41 +56,45 @@ h1 {
 }
 
 
-.animate
-{
-    transition: all 0.1s;
-    -webkit-transition: all 0.1s;
+#mainMenuButton {
+    background: #1abc9c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 9px 10px;
+    font-size: 30px;
+    border-radius: 25px;
+    width: 200px;
+    height: 80px;
 }
 
-
-.action-button
-{
+#mainMenuButtonDiv {
     position: absolute;
-    top: 900px;
-    left: 20px;
-    padding: 10px 40px;
-    margin: 0px 10px 10px 0px;
-    float: left;
-    border-radius: 10px;
-    font-family: 'Pacifico', cursive;
-    font-size: 25px;
-    color: #FFF;
-    text-decoration: none;  
-}
-
-
-.green
-{
-    background-color: #82BF56;
-    border-bottom: 5px solid #669644;
-    text-shadow: 0px -2px #669644;
+    top: 576px;
+    width: 200px;
+    height: 80px;
 }
 
 .anchor
 {
   position: relative;
-  left: 620px;
+  left: 1px;
   display: inline-block;
   height: 96px;
   max-width: 96px;
 }
+
+#tier1{
+  position: absolute;
+  top: 120px;
+  left: 520px;
+  display: inline-block;
+}
+
+#tier2{
+  position: absolute;
+  top: 120px;
+  left: 720px;
+  display: inline-block;
+}
+
