@@ -3,13 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="css/dummy">
-
-    </script>
+    <link rel="stylesheet" href="css/page5.css">
   </head>
   <body>
+    <div id="page5">
+      <div class="speaker"></div>
+      <input type="image" id="playPause" src="assets/images/audio_on.png">
+      <audio id="player">
+          <source src="assets/sounds/bg_music.mp3" type="audio/mp3" />
+      </audio>
 
-    <script type="text/javascript" src="js/dummy">
-    </script>
+      <script type="text/javascript" src="js/audio_button.js">
+      </script>
+    <div class="Choose">
+      <h1><span>Choose your character</span></h1>
+    </div>
+    <div class="characters">
+    <div><img src="assets/images/004Charmander_Pokemon_Mystery_Dungeon_Explorers_of_Sky.png"width="100" height="140"  /></div>
+    <div><img src="assets/images/Cute_pikachu_with_hat_by_mlpochea-d63xlom.png"  width="100" height="140" /></div>
+    <div><img src="assets/images/001Bulbasaur_Pokemon_Mystery_Dungeon_Explorers_of_Sky.png" width="100" height="140"/></div>
+    <div><img src="assets/images/Squirtle_Rojo_Fuego_y_Verde_Hoja.png" width="100" height="140"/></div>
+    </div>
+    <div class="types">
+      <p>Charmander</p>
+      <p>Pikachu</p>
+      <p>Bulbasaur</p>
+      <p>Squirtle</p>
+    </div>
+    <div id="mainMenuButtonDiv">
+        <button class="btn" id="mainMenuButton">Main Menu</button>
+    </div>
+    <script type="text/javascript" src="audioBtn.js"></script>
+    </div>
   </body>
 </html>
