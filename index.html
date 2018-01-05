@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
+<head>
     <title></title>
-    <link rel="stylesheet" href="css/dummy">
+    <link rel="stylesheet" type="text/css" href="css/page6.css">
+</head>
+<body>
+    <div id="page6">
+        <div class="speaker"></div>
+        <input type="image" id="playPause" src="assets/images/audio_on.png">
+        <audio id="player">
+            <source src="assets/sounds/bg_music.mp3" type="audio/mp3" />
+        </audio>
 
-    </script>
-  </head>
-  <body>
+        <script type="text/javascript" src="js/audio_button.js">
+        </script>
+        <div id="game">
+           <div id="moves"></div>
+           <div id="towers">
+                <ul id="tower-1" value="0"></ul>
+                <ul id="tower-2" value="1"></ul>
+                <ul id="tower-3" value="2"></ul>
+            </div>
 
-    <script type="text/javascript" src="js/dummy">
-    </script>
-  </body>
+            <div id="buttons"><!-- 
+                <div id="solve">Solve</div> -->
+                <div id="restart">Restart</div>
+            </div>
+        </div>
+        <div id="mainMenuButtonDiv">
+            <button class="btn" id="mainMenuButton">Main Menu</button>
+        </div>  
+    </div>
+</body>
 </html>
