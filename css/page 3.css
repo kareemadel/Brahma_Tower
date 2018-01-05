@@ -1,0 +1,122 @@
+@import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
+@import url(https://fonts.googleapis.com/css?family=Boogaloo);
+
+body
+{
+	background-image: url("../assets/images/bgd.png");
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	text-align: center;
+}
+
+#header
+{
+	text-align:left;
+}
+
+h1 
+{
+    font-family:'Lily Script One', cursive;
+    font-weight:bold;
+    font-size: 90px;
+    color:cornflowerblue;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+
+/*span 
+{
+    font-size: 3.5em;
+    z-index: 100;
+}*/
+
+.badges
+{
+	width:60px;
+	height:60px;
+	margin:0px 10px;
+	float:right;
+}
+
+.chr
+{
+	text-align:center;
+	width:auto;
+	height:300px;
+	display: block;
+	position: absolute;
+	right: 1300px;
+	top: 482px;
+	z-index: -1;
+}
+
+#mainMenuBtn {
+    background-color: #1abc9c;
+    border: 2px solid black;
+    border-radius: 25px;
+    cursor: pointer;
+    color: white;
+    padding: 9px 10px;
+    font-size: 30px;
+    font-weight: bold;
+    width: 200px;
+    height: 80px;
+    position: fixed;
+	bottom: 10px;
+	left: 10px;
+}
+
+#skipBtn {
+    background-color: #DCDCDC;
+    border: 2px solid black;
+    border-radius: 25px;
+    cursor: pointer;
+    color: black;
+    padding: 9px 10px;
+    font-size: 30px;
+    font-weight: bold;
+   	width: 200px;
+    height: 80px;
+    position: fixed;
+	bottom: 10px;
+	right: 10px;
+}
+
+.talktext{
+	font-family: 'Boogaloo';
+	font-size: 30px;
+	color: black;
+  	padding: 1em;
+	text-align: left;
+  	line-height: 1.5em;
+  	position:relative;
+  	width: 800px;
+}
+
+.speech-bubble {
+	position: absolute;
+	background: #20B2AA;
+	border-radius: 30px;
+	right: 478px;
+	top:201px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 19%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #20B2AA;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -135px;
+	margin-bottom: -20px;
+}
+
+#playPause
+{
+	cursor: pointer;
+}
