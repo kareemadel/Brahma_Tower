@@ -14,3 +14,5 @@ var togglePlay = function(e) {
     isPlay = !isPlay;
 };
 button.addEventListener('click', togglePlay);
+
+document.getElementById("page2").style.display = "none";
