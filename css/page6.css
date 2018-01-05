@@ -145,6 +145,10 @@ body {
     height: 70px;
 }
 
+#playPause {
+    cursor: pointer;
+}
+
 
 
 
