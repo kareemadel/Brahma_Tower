@@ -45,8 +45,8 @@ h1
 	height:300px;
 	display: block;
 	position: absolute;
-	right: 1300px;
-	top: 482px;
+	right: 1069px;
+	top: 349px;
 	z-index: -1;
 }
 
@@ -84,10 +84,10 @@ h1
 
 .talktext{
 	font-family: 'Boogaloo';
-	font-size: 30px;
+	font-size: 25px;
 	color: black;
-  	padding: 1em;
-	text-align: left;
+  	padding: 15px;
+	text-align: justify;
   	line-height: 1.5em;
   	position:relative;
   	width: 800px;
@@ -97,15 +97,15 @@ h1
 	position: absolute;
 	background: #20B2AA;
 	border-radius: 30px;
-	right: 478px;
-	top:201px;
+	right: 259px;
+	top:188px;
 }
 
 .speech-bubble:after {
 	content: '';
 	position: absolute;
 	bottom: 0;
-	left: 19%;
+	left: 20%;
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
