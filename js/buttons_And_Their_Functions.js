@@ -5,35 +5,122 @@ function flip(current_page, target_page) {
     document.getElementById("page" + target_page).style.display = "";
 }
 
-//////////////////////////////////////////////////////////////////////////
-// All buttons
-// page 1 buttons
-var pg1SubmitBtn = document.getElementById("submitBtn");
-// page 2
-var pg2StartBtn = document.getElementById("startButton");
-// page3
-var mainMenuBtn = document.getElementById("mainMenuBtn"); // shared button
-var skipButton = document.getElementById("skipBtn");
-// page 4
-var easy = document.getElementById("easy");
-var average = document.getElementById("average");
-var hard = document.getElementById("hard");
-var insane = document.getElementById("insane");
-// page 5
-var charmander = document.getElementById("charmander");
-var pikachu = document.getElementById("pikachu");
-var bulbasaur = document.getElementById("bulbasaur");
-var squirtle = document.getElementById("squirtle");
-// page 6
-var movesDiv = document.getElementById("moves");
-var tower1 = document.getElementById("tower-1");
-var tower2 = document.getElementById("tower-2");
-var tower3 = document.getElementById("tower-3");
-var restartBtn = document.getElementById("restartButton");
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////// All Clickables On All Pages As A Global Object///////
+
+var clickables = {
+    page1 : {
+                pg1SubmitBtn : function(argument){
+                    return document.getElementById("submitBtn");
+                }
+            },
+
+    page2 : {
+                pg2StartBtn : function (argument) {
+                    return document.getElementById("startButton");
+                } 
+            },
+
+    page3 : {
+                mainMenuBtn : function (argument) {
+                    return document.getElementById("mainMenuBtn");
+                }, 
+                skipButton : function (argument) {
+                    return document.getElementById("skipBtn");
+                } 
+            },
+
+    page4 : {
+                easy : function (argument) {
+                    return document.getElementById("easy");
+                }, 
+                average : function (argument) {
+                    return document.getElementById("average");
+                }, 
+                hard : function (argument) {
+                    return document.getElementById("hard");
+                }, 
+                insane : function (argument) {
+                    return document.getElementById("insane");
+                } 
+            },
+
+    page5 : {
+                charmander : function (argument) {
+                    return document.getElementById("charmander");
+                }, 
+                pikachu : function (argument) {
+                    return document.getElementById("pikachu");
+                }, 
+                bulbasaur : function (argument) {
+                    return document.getElementById("bulbasaur");
+                }, 
+                squirtle : function (argument) {
+                    return document.getElementById("squirtle");
+                }
+
+            },
+
+    page6 : {
+                movesDiv : function (argument) {
+                    return document.getElementById("moves");
+                }, 
+                tower1 : function (argument) {
+                    return document.getElementById("tower-1");
+                }, 
+                tower2 : function (argument) {
+                    return document.getElementById("tower-2");
+                }, 
+                tower3 : function (argument) {
+                    return document.getElementById("tower-3");
+                }, 
+                restartBtn : function (argument) {
+                    return document.getElementById("restartButton");
+                } 
+            }
+};
+    
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 //// Buttons' Functions
-
+function onClickAttrIntializer(argument) {
+    /*
+    sets the onclick attribute to all the
+    clickables in our game in the HTML file
+    */
+    for(var k1 in clickables){
+        if (k1 == "page1") {
+            clickables[k1].pg1SubmitBtn.onClick = "pg1Submit_btn()";
+        }
+        else if (k1 == "page2") {
+            clickables[k1].pg2StartBtn.onClick = "pg2Start_btn()";
+        }
+        else if (k1 == "page3") {
+            clickables[k1].mainMenuBtn.onClick = "mainMenu_btn()";
+            clickables[k1].skipBtn.onClick = "skip_btn()";
+        }
+        else if (k1 == "page4") {
+            clickables[k1].easy.onClick = "difficulty(this.id)";
+            clickables[k1].average.onClick = "difficulty(this.id)";
+            clickables[k1].hard.onClick = "difficulty(this.id)";
+            clickables[k1].insane.onClick = "difficulty(this.id)";
+        }
+        else if (k1 == "page5") {
+            clickables[k1].charmander.onClick = "character(this.id)";
+            clickables[k1].pikachu.onClick = "character(this.id)";
+            clickables[k1].bulbasaur.onClick = "character(this.id)";
+            clickables[k1].squirtle.onClick = "character(this.id)";
+        }
+        else if (k1 == "page6") {
+            clickables[k1].tower1.onClick = "handleTowers(this.value)";
+            clickables[k1].tower2.onClick = "handleTowers(this.value)";
+            clickables[k1].tower3.onClick = "handleTowers(this.value)";
+            clickables[k1].restartBtn.onClick = "restart_btn()";
+        }
+            
+        }
+}
 //page 1
 function pg1Submit_btn(e) {
     /*
