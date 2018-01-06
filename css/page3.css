@@ -1,47 +1,35 @@
 @import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
 @import url(https://fonts.googleapis.com/css?family=Boogaloo);
-
-/*body
-{
-	background-image: url("../assets/images/bgd.png");
-	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
-	text-align: center;
-}*/
-
-#header
-{
-	text-align:left;
+#header {
+    text-align: left;
 }
 
-h3 
-{
-    font-family:'Lily Script One', cursive;
-    font-weight:bold;
+h3 {
+    font-family: 'Lily Script One', cursive;
+    font-weight: bold;
     font-size: 90px;
-    color:cornflowerblue;
+    color: cornflowerblue;
     text-align: center;
     position: absolute;
     width: 100%;
 }
 
-.badges
-{
-	width:60px;
-	height:60px;
-	margin:0px 10px;
-	float:right;
+.badges {
+    width: 60px;
+    height: 60px;
+    margin: 0px 10px;
+    float: right;
 }
 
-.chr
-{
-	text-align:center;
-	width:auto;
-	height:239px;
-	display: block;
-	position: absolute;
-	right: 1069px;
-	top: 349px;
-	z-index: -1;
+.chr {
+    text-align: center;
+    width: auto;
+    height: 239px;
+    display: block;
+    position: absolute;
+    right: 1069px;
+    top: 349px;
+    z-index: -1;
 }
 
 #mainMenuBtn {
@@ -56,8 +44,8 @@ h3
     width: 200px;
     height: 80px;
     position: fixed;
-	bottom: 10px;
-	left: 10px;
+    bottom: 10px;
+    left: 10px;
 }
 
 #skipBtn {
@@ -69,51 +57,45 @@ h3
     padding: 9px 10px;
     font-size: 30px;
     font-weight: bold;
-   	width: 200px;
+    width: 200px;
     height: 80px;
     position: fixed;
-	bottom: 10px;
-	right: 10px;
+    bottom: 10px;
+    right: 10px;
 }
 
-.talktext{
-	font-family: 'Boogaloo';
-	font-size: 25px;
-	color: black;
-  	padding: 15px;
-	text-align: justify;
-  	line-height: 1.5em;
-  	position:relative;
-  	width: 800px;
-  	margin-top: -26px;
-  	margin-bottom: -18px;
-
+.talktext {
+    font-family: 'Boogaloo';
+    font-size: 25px;
+    color: black;
+    padding: 15px;
+    text-align: justify;
+    line-height: 1.5em;
+    position: relative;
+    width: 800px;
+    margin-top: -26px;
+    margin-bottom: -18px;
 }
 
 .speech-bubble {
-	position: absolute;
-	background: #20B2AA;
-	border-radius: 30px;
-	right: 305px;
-	top:151px;
+    position: absolute;
+    background: #20B2AA;
+    border-radius: 30px;
+    right: 305px;
+    top: 151px;
 }
 
 .speech-bubble:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 19%;
-	width: 0px;
-	height: 5px;
-	border: 20px solid transparent;
-	border-top-color: #20B2AA;
-	border-bottom: 0;
-	border-left: 0;
-	margin-left: -135px;
-	margin-bottom: -20px;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 19%;
+    width: 0px;
+    height: 5px;
+    border: 20px solid transparent;
+    border-top-color: #20B2AA;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -135px;
+    margin-bottom: -20px;
 }
-
-/*#playPause
-{
-	cursor: pointer;
-}*/
