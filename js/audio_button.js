@@ -17,12 +17,12 @@ button.addEventListener('click', togglePlay);
 
 var flip = function(current_page, target_page) {
     for (var i = 1; i < 7; i++) {
-        if (i == 3) {
+        /*if (i == 3) {
             continue;
-        }
+        }*/
         document.getElementById("page" + i).style.display = "none";
     }
     document.getElementById("page" + target_page).style.display = "";
 };
 
-flip(5, 6);
+flip(0, 1);

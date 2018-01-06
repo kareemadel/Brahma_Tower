@@ -32,8 +32,8 @@ html {
     height: 100px;
     top:100px;
 }
-
-img:hover {
+/*I (Amr)made class="cr" instead of img to avoid any img conflict in the future*/
+.cr:hover {
   transform: scale(2);
   margin-bottom: 17px;
 }

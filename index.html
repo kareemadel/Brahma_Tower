@@ -7,20 +7,24 @@
     <link rel="stylesheet" href="css/audio_button.css">
     <link rel="stylesheet" href="css/page1.css">
     <link rel="stylesheet" href="css/page2.css">
+    <link rel="stylesheet" href="css/page3.css">
     <link rel="stylesheet" href="css/page4.css">
     <link rel="stylesheet" href="css/page5.css">
     <link rel="stylesheet" type="text/css" href="css/page6.css">
 </head>
 
-<body>
-    <a id="playPause" href="#" class="speaker">
-  <span></span>
-</a>
+<body> 
+    <!-- <a id="playPause" href="#" class="speaker">
+    <span></span>
+    </a> -->
     <audio id="player">
         <source src="assets/sounds/bg_music.mp3" type="audio/mp3" />
     </audio>
 
     <div id="page1">
+        <a id="playPause" href="#" class="speaker">
+        <span></span>
+        </a>
         <h1><span data-shadow-text="Text-Shadow">Brahama Tower</span></h1>
         <div class="login">
             <form method="post">
@@ -31,14 +35,58 @@
     </div>
 
     <div id="page2">
+        <a id="playPause" href="#" class="speaker">
+        <span></span>
+        </a>
         <h1 id="gameTitle"><span data-shadow-text="Text-Shadow" id="gameTitleSpan">Brahama Tower</span></h1>
         <div id="startButtonDiv">
             <button class="btn" id="startButton">Start</button>
         </div>
     </div>
 
-    <div id="page4">
+    <div id="page3">
+        <div id="header">
+            <h3>Brahama Tower</h3>
+            <!-- <input type="image" id="playPause" src="assets/images/audio_on.png">  -->
+            <a id="playPause" href="#" class="speaker">
+            <span></span>
+            </a>
+            <img class="badges" src="assets/images/red.png"/>
+            <img class="badges" src="assets/images/gray.png"/>
+            <img class="badges" src="assets/images/green.png"/>
+            <img class="badges" src="assets/images/orange.png"/>
+        </div>
+        <div>
+            <div class="speech-bubble">
+                <div class="talktext">
+                <!-- <p>If the legend of Brahm's Tower was true, and if the priests were able to move disks at a rate of one per second, using the smallest number of moves it would take them around 585 billion years to finish,which is about 42 times the current age of the Universe.</p> -->
 
+                 <p>Do you know that:<br/>The puzzle was invented by the French mathematician Édouard Lucas in 1883. There is a story about an Indian temple in Kashi Vishwanath which contains a large room with three time-worn posts in it, surrounded by 64 golden disks.</p>
+
+                <!-- <p>According to the legend, Brahmin priests have been moving Brahama Tower disks in accordance with the immutable rules of Brahma since that time. It was beleived that, when the last move of the puzzle is completed, the world will end.<p>
+
+                <p>In the film Rise of the Planet of the Apes (2011), this puzzle, called in the film the "Lucas Tower", is used as a test to study the intelligence of apes.<p> -->
+                 </div>
+              </div>
+        </div>
+        <div>
+            <img class="chr" src="assets/images/chr.png"/>
+        </div>
+
+        <div >
+            <button class="button" id="mainMenuBtn">Main Menu</button>
+        </div>
+
+        <div>
+           <button class="button" id="skipBtn">Skip</button>
+        </div>
+    </div>
+
+
+    <div id="page4">
+        <a id="playPause" href="#" class="speaker">
+        <span></span>
+        </a>
         <h1>What Type Of Person Are You?</h1>
 
         <div id="tier1">
@@ -84,15 +132,17 @@
     </div>
 
     <div id="page5">
-
+        <a id="playPause" href="#" class="speaker">
+        <span></span>
+        </a>
         <div class="Choose">
             <h1><span>Choose your character</span></h1>
         </div>
         <div class="characters">
-            <div><img src="assets/images/004Charmander_Pokemon_Mystery_Dungeon_Explorers_of_Sky.png" width="100" height="140" /></div>
-            <div><img src="assets/images/Cute_pikachu_with_hat_by_mlpochea-d63xlom.png" width="100" height="140" /></div>
-            <div><img src="assets/images/001Bulbasaur_Pokemon_Mystery_Dungeon_Explorers_of_Sky.png" width="100" height="140" /></div>
-            <div><img src="assets/images/Squirtle_Rojo_Fuego_y_Verde_Hoja.png" width="100" height="140" /></div>
+            <div><img class="cr" src="assets/images/004Charmander_Pokemon_Mystery_Dungeon_Explorers_of_Sky.png" width="100" height="140" /></div>
+            <div><img class="cr" src="assets/images/Cute_pikachu_with_hat_by_mlpochea-d63xlom.png" width="100" height="140" /></div>
+            <div><img class="cr" src="assets/images/001Bulbasaur_Pokemon_Mystery_Dungeon_Explorers_of_Sky.png" width="100" height="140" /></div>
+            <div><img class="cr" src="assets/images/Squirtle_Rojo_Fuego_y_Verde_Hoja.png" width="100" height="140" /></div>
         </div>
         <div class="types">
             <p>Charmander</p>
@@ -106,6 +156,9 @@
     </div>
 
     <div id="page6">
+        <a id="playPause" href="#" class="speaker">
+        <span></span>
+        </a>
         <div id="game">
             <div id="moves"></div>
             <div id="towers">
