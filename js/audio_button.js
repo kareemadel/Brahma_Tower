@@ -19,12 +19,3 @@ var togglePlay = function(e) {
 for (var i = button.length - 1; i > -1; i--) {
     button[i].addEventListener('click', togglePlay);
 }
-
-var flip = function(current_page, target_page) {
-    for (var i = 1; i < 7; i++) {
-        document.getElementById("page" + i).style.display = "none";
-    }
-    document.getElementById("page" + target_page).style.display = "";
-};
-
-flip(0, 1);

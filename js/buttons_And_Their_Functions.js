@@ -6,7 +6,7 @@ function flip(current_page, target_page) {
 }
 
 //////////////////////////////////////////////////////////////////////////
-// All buttons 
+// All buttons
 // page 1 buttons
 var pg1SubmitBtn = document.getElementById("submitBtn");
 // page 2
@@ -35,58 +35,70 @@ var restartBtn = document.getElementById("restartButton");
 //// Buttons' Functions
 
 //page 1
-function pg1Submit_btn(argument) {
+function pg1Submit_btn(e) {
+    /*
+    takes only one parameter, which is the calling event.
+    This button will validate the username,
+    store it in a global session object and
+    switch to page2.
+    */
+
     // body...
 }
 
 ///////////////////////////////////
 // page 2
-function pg2Start_btn(argument) {
+function pg2Start_btn(e) {
+    /*
+    takes only one parameter, which is the calling event.
+    Switch to page 3
+    */
+
     // body...
 }
 
 // page 3
-function mainMenu_btn(argument) {
+function mainMenu_btn(e) {
+    /*
+    takes only one parameter, which is the calling event.
+    takes only one parameter, which is the calling event.
+    switch to page2
+    */
+
     // body...
 }
 
-function skip_btn(argument) {
+function skip_btn(e) {
+    /*
+    switch to page4
+    */
+
     // body...
 }
 
 ////////////////////////////////
 // page 4
-function easy_btn(argument) {
-    // body...
-}
 
-function avg_btn(argument) {
-    // body...
-}
+function difficulty(e) {
+    /*
+    takes only one parameter, which is the calling event.
+    it will set the difficulty variable depending on the id of the object calling the event.
+    1=easy, 2=average, 3=hard, 4=instane.
+    after this it will switch to page5
+    */
 
-function hard_btn(argument) {
-    // body...
-}
-
-function insane_btn(argument) {
     // body...
 }
 
 //////////////////////////////////
 // page 5
-function charmander_btn(argument) {
-    // body...
-}
+function character(e) {
+    /*
+    takes only one parameter, which is the calling event.
+    it will the the global character of the game depending on the id of the calling object. the is should be one of the following charmander, pikachu, bulbasaur, squirtle.
+    after this it switches to page6, the actual game.
+    */
 
-function pikachu_btn(argument) {
-    // body...
-}
-
-function bulbasaur_btn(argument) {
-    // body...
-}
-
-function squirtle_btn(argument) {
     // body...
 }
 
@@ -95,6 +107,7 @@ function squirtle_btn(argument) {
 function movesDiv_func(argument) {
     // body...
 }
+
 function restart_btn() {
     // body...
 }
@@ -115,25 +128,13 @@ function init(argument) {
 }
 
 function emptyTowers() {
-    // delete the html content of <ul> towers tags 
+    // delete the html content of <ul> towers tags
 }
+
 function drawDiscs() {
-    // draw the discs according to handled backend 
+    // draw the discs according to handled backend
 }
 
 function isSolved() {
     // used to check whether he won or not
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
