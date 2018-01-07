@@ -12,6 +12,7 @@ html {
     text-align: center;
     position: absolute;
     width: 100%;
+    margin-top:10%;
 }
 
 #gameTitleSpan {
@@ -40,6 +41,7 @@ html {
     border-radius: 25px;
     width: 100%;
     height: 25%;
+
 }
 
 #startButtonDiv {
