@@ -5,124 +5,74 @@ function flip(current_page, target_page) {
     document.getElementById("page" + target_page).style.display = "";
 }
 
+flip(0,5);
 
 //////////////////////////////////////////////////////////////
 //////// All Clickables On All Pages As A Global Object///////
 
 var clickables = {
     page1 : {
-                pg1SubmitBtn : function(argument){
-                    return document.getElementById("submitBtn");
-                }
+                SubmitBtn : document.getElementById("submitBtn")
             },
 
     page2 : {
-                pg2StartBtn : function (argument) {
-                    return document.getElementById("startButton");
-                } 
+                StartBtn : document.getElementById("startButton")
             },
 
     page3 : {
-                mainMenuBtn : function (argument) {
-                    return document.getElementById("mainMenuBtn");
-                }, 
-                skipButton : function (argument) {
-                    return document.getElementById("skipBtn");
-                } 
+                mainMenuBtn : document.getElementById("mainMenuBtn"),
+                skipButton : document.getElementById("skipBtn")
             },
 
     page4 : {
-                easy : function (argument) {
-                    return document.getElementById("easy");
-                }, 
-                average : function (argument) {
-                    return document.getElementById("average");
-                }, 
-                hard : function (argument) {
-                    return document.getElementById("hard");
-                }, 
-                insane : function (argument) {
-                    return document.getElementById("insane");
-                } 
+                easy : document.getElementById("easy"),
+                average : document.getElementById("average"),
+                hard : document.getElementById("hard"),
+                insane : document.getElementById("insane")
             },
 
     page5 : {
-                charmander : function (argument) {
-                    return document.getElementById("charmander");
-                }, 
-                pikachu : function (argument) {
-                    return document.getElementById("pikachu");
-                }, 
-                bulbasaur : function (argument) {
-                    return document.getElementById("bulbasaur");
-                }, 
-                squirtle : function (argument) {
-                    return document.getElementById("squirtle");
-                }
+                charmander : document.getElementById("charmander"),
+                pikachu : document.getElementById("pikachu"),
+                bulbasaur : document.getElementById("bulbasaur"),
+                squirtle : document.getElementById("squirtle")
 
             },
 
     page6 : {
-                movesDiv : function (argument) {
-                    return document.getElementById("moves");
-                }, 
-                tower1 : function (argument) {
-                    return document.getElementById("tower-1");
-                }, 
-                tower2 : function (argument) {
-                    return document.getElementById("tower-2");
-                }, 
-                tower3 : function (argument) {
-                    return document.getElementById("tower-3");
-                }, 
-                restartBtn : function (argument) {
-                    return document.getElementById("restartButton");
-                } 
+                movesDiv : document.getElementById("moves"),
+                tower1 : document.getElementById("tower-1"),
+                tower2 : document.getElementById("tower-2"),
+                tower3 : document.getElementById("tower-3"),
+                restartBtn : document.getElementById("restartButton")
             }
 };
-    
+
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 //// Buttons' Functions
-function onClickAttrIntializer(argument) {
+function onclickAttrIntializer() {
     /*
-    sets the onclick attribute to all the
+    sets the click events to all the
     clickables in our game in the HTML file
     */
-    for(var k1 in clickables){
-        if (k1 == "page1") {
-            clickables[k1].pg1SubmitBtn.onClick = "pg1Submit_btn()";
-        }
-        else if (k1 == "page2") {
-            clickables[k1].pg2StartBtn.onClick = "pg2Start_btn()";
-        }
-        else if (k1 == "page3") {
-            clickables[k1].mainMenuBtn.onClick = "mainMenu_btn()";
-            clickables[k1].skipBtn.onClick = "skip_btn()";
-        }
-        else if (k1 == "page4") {
-            clickables[k1].easy.onClick = "difficulty(this.id)";
-            clickables[k1].average.onClick = "difficulty(this.id)";
-            clickables[k1].hard.onClick = "difficulty(this.id)";
-            clickables[k1].insane.onClick = "difficulty(this.id)";
-        }
-        else if (k1 == "page5") {
-            clickables[k1].charmander.onClick = "character(this.id)";
-            clickables[k1].pikachu.onClick = "character(this.id)";
-            clickables[k1].bulbasaur.onClick = "character(this.id)";
-            clickables[k1].squirtle.onClick = "character(this.id)";
-        }
-        else if (k1 == "page6") {
-            clickables[k1].tower1.onClick = "handleTowers(this.value)";
-            clickables[k1].tower2.onClick = "handleTowers(this.value)";
-            clickables[k1].tower3.onClick = "handleTowers(this.value)";
-            clickables[k1].restartBtn.onClick = "restart_btn()";
-        }
-            
-        }
+    clickables.page1.SubmitBtn.addEventListener('click', Submit_btn);
+    clickables.page2.StartBtn.addEventListener('click', Start_btn);
+    clickables.page3.mainMenuBtn.addEventListener('click', mainMenu_btn);
+    clickables.page3.skipButton.addEventListener('click', skip_btn);
+    for (var k in clickables.page4) {
+        clickables.page4[k].addEventListener('click', difficulty);
+    }
+    for (k in clickables.page5) {
+        clickables.page5[k].addEventListener('click', character);
+    }
+    clickables.page6.restartBtn.addEventListener('click', restart_btn);
+    // clickables.page6.tower1.addEventListener('click', handleTowers);
+    // clickables.page6.tower2.addEventListener('click', handleTowers);
+    // clickables.page6.tower3.addEventListener('click', handleTowers);
 }
 //page 1
-function pg1Submit_btn(e) {
+function Submit_btn(e) {
     /*
     takes only one parameter, which is the calling event.
     This button will validate the username,
@@ -131,11 +81,12 @@ function pg1Submit_btn(e) {
     */
 
     // body...
+
 }
 
 ///////////////////////////////////
 // page 2
-function pg2Start_btn(e) {
+function Start_btn(e) {
     /*
     takes only one parameter, which is the calling event.
     Switch to page 3
