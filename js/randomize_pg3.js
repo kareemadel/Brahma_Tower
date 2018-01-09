@@ -1,12 +1,12 @@
-var Chrtr = document.getElementsByClassName("chr")[0];
+var Chrtr = document.getElementsByClassName("chr");
 
 function setText(txt)
 {
 	for (var i = 0; i < 4; i++) 
 		{
-	        document.getElementsByClassName("talktext")[0].children[i].style.display='none'
+	        document.getElementsByClassName("talktext")[0].children[i].style.display='none';
 	    }
-	document.getElementsByClassName("talktext")[0].children[txt-1].style.display=''
+	document.getElementsByClassName("talktext")[0].children[txt-1].style.display='';
 }
 
 function randomMsg() {

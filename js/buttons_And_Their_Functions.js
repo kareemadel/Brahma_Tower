@@ -108,7 +108,7 @@ function skip_btn() {
     /*
     switch to page4
     */
-    flip(000,4)
+    flip(000,4);
 }
 
 ////////////////////////////////
