@@ -1,4 +1,4 @@
-var Chrtr = document.getElementsByClassName("chr");
+var Chrtr = document.getElementsByClassName("chr")[0];
 
 function setText(txt)
 {
