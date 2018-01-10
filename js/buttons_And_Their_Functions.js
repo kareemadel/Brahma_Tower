@@ -27,14 +27,17 @@ var clickables = {
                 easy : document.getElementById("easy"),
                 average : document.getElementById("average"),
                 hard : document.getElementById("hard"),
-                insane : document.getElementById("insane")
+                insane : document.getElementById("insane"),
+
             },
 
     page5 : {
                 charmander : document.getElementById("charmander"),
                 pikachu : document.getElementById("pikachu"),
                 bulbasaur : document.getElementById("bulbasaur"),
-                squirtle : document.getElementById("squirtle")
+                squirtle : document.getElementById("squirtle"),
+                mainMenuButton : document.getElementById("mainMenuButton01")
+
 
             },
 
@@ -65,10 +68,12 @@ function onclickAttrIntializer() {
     for (k in clickables.page5) {
         clickables.page5[k].addEventListener('click', character);
     }
+    console.log("asdf");
+    clickables.page5.mainMenuButton.addEventListener('click', mainMenuButtonjj);
     clickables.page6.restartBtn.addEventListener('click', restart_btn);
-    // clickables.page6.tower1.addEventListener('click', handleTowers);
-    // clickables.page6.tower2.addEventListener('click', handleTowers);
-    // clickables.page6.tower3.addEventListener('click', handleTowers);
+    clickables.page6.tower1.addEventListener('click', handleTowers);
+    clickables.page6.tower2.addEventListener('click', handleTowers);
+    clickables.page6.tower3.addEventListener('click', handleTowers);
 }
 //page 1
 function Submit_btn(e) {
@@ -80,6 +85,20 @@ function Submit_btn(e) {
     */
 
     // body...
+    function validateName (IdForTextInput)
+    {
+        var content = document.getElementById(IdForTextInput).value;
+        var pattern = new RegExp("^[a-zA-Z]{3,15}$");
+        return pattern.test(content);
+    }
+    e.preventDefault();
+    if (!validateName("playerName"))
+    {
+        alert("too short");
+    }
+    else {
+      flip(0,2)
+    }
 
 }
 
@@ -137,6 +156,10 @@ function character(e) {
     // body...
 }
 
+function mainMenuButtonjj(){
+  flip(0,6)
+}
+
 //////////////////////////////////
 // page 6
 function movesDiv_func(argument) {
@@ -173,4 +196,3 @@ function drawDiscs() {
 function isSolved() {
     // used to check whether he won or not
 }
-
