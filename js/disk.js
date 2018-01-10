@@ -3,13 +3,35 @@
     This will contain the implementation of the Disk object
 */
 
-function Disk(tower, width, colour, height) {
+function Disk(tower, width, order) {
     /*
-    The disk object will the attributes, DOM reference tower, width, color and height.
+    The disk object will the attributes, tower, width and order.
     and the methods, draw moveToTower, isTop,
     */
-
+    var _tower = tower;
+    var _order = order;
     // your code...
+    Object.defineProperties(this, {
+        tower: {
+            get: function() {
+                return _tower;
+            },
+            set: function(newTower) {
+                _tower = newTower;
+            }
+        },
+        width: {
+            value: width
+        },
+        order: {
+            get: function() {
+                return _order;
+            },
+            set: function(newOrder) {
+                _order = newOrder;
+            }
+        }
+    });
 }
 
 Disk.prototype.draw = function() {

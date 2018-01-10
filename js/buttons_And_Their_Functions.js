@@ -5,6 +5,7 @@ function flip(current_page, target_page) {
     document.getElementById("page" + target_page).style.display = "";
 }
 
+flip(0,1);
 
 //////////////////////////////////////////////////////////////
 //////// All Clickables On All Pages As A Global Object///////
@@ -92,6 +93,7 @@ function Start_btn(e) {
     */
 
     // body...
+    flip(2, 3);
 }
 
 // page 3
@@ -101,14 +103,14 @@ function mainMenu_btn() {
     takes only one parameter, which is the calling event.
     switch to page2
     */
-    flip(000,2)
+    flip(3,2);
 }
 
 function skip_btn() {
     /*
     switch to page4
     */
-    flip(000,4)
+    flip(3,4);
 }
 
 ////////////////////////////////
@@ -173,4 +175,3 @@ function drawDiscs() {
 function isSolved() {
     // used to check whether he won or not
 }
-
