@@ -49,7 +49,13 @@ var clickables = {
                 restartBtn : document.getElementById("restartButton")
             }
 };
-
+var globalElements = {
+        yourcharacter: document.getElementById("yourCharacter"),
+        first:document.getElementById("first"),
+        nearopt:document.getElementById("nearopt"),
+        optimum:document.getElementById("optimum"),
+        insane:document.getElementById("insane")
+}
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 //// Buttons' Functions
@@ -68,7 +74,6 @@ function onclickAttrIntializer() {
     for (k in clickables.page5) {
         clickables.page5[k].addEventListener('click', character);
     }
-    console.log("asdf");
     clickables.page5.mainMenuButton.addEventListener('click', mainMenuButtonjj);
     clickables.page6.restartBtn.addEventListener('click', restart_btn);
     clickables.page6.tower1.addEventListener('click', handleTowers);
@@ -154,10 +159,29 @@ function character(e) {
     */
 
     // body...
+    var target= e.target.id;
+    var targetsrc=e.target.src;
+    // globalElements.yourcharacter
+    switch (target) {
+      case "charmander":
+       globalElements.yourcharacter.src=targetsrc
+        break;
+      case "pikachu":
+      globalElements.yourcharacter.src=targetsrc
+        break;
+      case "bulbasaur":
+      globalElements.yourcharacter.src=targetsrc
+        break;
+      case "squirtle":
+      globalElements.yourcharacter.src=targetsrc
+        break;
+
+    }
+    flip(0,6)
 }
 
 function mainMenuButtonjj(){
-  flip(0,6)
+  flip(0,2)
 }
 
 //////////////////////////////////
