@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
+#cover {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 9999;
+}
+
+#loader {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    margin: -10px auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #eee;
+    left: 43%;
+    top: 46%;
+}

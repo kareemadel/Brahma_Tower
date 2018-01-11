@@ -8,6 +8,9 @@ var HARD = 5;
 var INSANE = 7;
 // flip(0, 4);
 onclickAttrIntializer();
+window.addEventListener("load", function() {
+    document.getElementById("cover").style.display = "none";
+});
 // init();
 // var newSession = new session("kareem");
 // setInterval(function() {
