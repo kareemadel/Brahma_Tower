@@ -15,7 +15,7 @@ function session(name) {
     var _firstGame = false;
     var _optimum = false;
     var _nearOptimum = false;
-    var _instane = false;
+    var _insane = false;
 
     Object.defineProperties(this, {
         startTime: {
@@ -40,18 +40,7 @@ function session(name) {
         games: {
             get: function() {
                 return _games;
-            },
-            push: function(game) {
-                _games.push(game);
-            },
-            pop: function() {},
-            copyWithin: function() {},
-            fill: function() {},
-            reverse: function() {},
-            shift: function() {},
-            sort: function() {},
-            splice: function() {},
-            unshift: function() {}
+            }
         },
         firstGame: {
             get: function() {
@@ -86,20 +75,33 @@ function session(name) {
             }
         }
     });
+
+    this.addGame = function(newGame) {
+        /*
+        adds a game to the session, check if the player unlocked a badge
+        */
+
+        // your code...
+        if (newGame.isSolved()) {
+        this.checkBadge(newGame);
+            _games.push(newGame);
+        }
+    };
 }
-
-session.prototype.addGame = function(newGame) {
-    /*
-    adds a game to the session, check if the player unlocked a badge
-    */
-
-    // your code...
-};
 
 session.prototype.checkBadge = function(newGame) {
     /*
-    check if the player is entilted to a new badge, return true if the player just unlocked a new badge, false if he already have the badge or isn't qualified to get it
+    check if the player is entilted to a new badge and change the corresponging badge propertry if the player just unlocked a new badge, do nothing if the player isn't qualified to win new badge
     */
 
     // your code...
+    if (newGame.isSolved()) {
+        this.firstGame = (this.games.length == 0) || this.firstGame;
+        // the difference between the actual and optimum number of moves
+        var delta = newGame.numberOfMoves - newGame.optimumNumberOfMoves;
+        this.optimum = (delta == 0) || this.optimum;
+        this.nearOptimum = (delta < 3 && !this.optimum) || this.nearOptimum;
+
+        this.insane = (newGame.difficulty == INSANE) || this.insane;
+    }
 };
