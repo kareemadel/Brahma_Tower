@@ -2,7 +2,7 @@
     This will contain the implementation of the game object
 */
 
-function game(difficulty) {
+function Game(difficulty) {
     /*
     This will contain the time of start and end of the game, the level of difficulty of that game(the number of disks associated with each level), the character, the number of moves, the optimum number of moves, array of towers
     methods: isVictory,
@@ -12,7 +12,12 @@ function game(difficulty) {
     // your code...
     var _endTime = Date.now();
     var _numberOfMoves = 0;
+    var _character;
+    var _whichTowerClicked = null;
     var _towers = [];
+    _towers.push(new Tower(0, difficulty));
+    _towers.push(new Tower(1, 0));
+    _towers.push(new Tower(2, 0));
 
     Object.defineProperties(this, {
         startTime: {
@@ -26,44 +31,66 @@ function game(difficulty) {
                 _endTime = newTime;
             }
         },
+        character: {
+            get: function() {
+                return _character;
+            },
+            set: function(newCharacter) {
+                _character = newCharacter;
+            }
+        },
         numberOfMoves: {
             get: function() {
                 return _numberOfMoves;
             },
-            increment: function() {
-                return ++_numberOfMoves;
+            set: function() {
+                ++_numberOfMoves;
             }
         },
         difficulty: {
             value: difficulty
         },
         optimumNumberOfMoves: {
-            value: Math.pow(2, this.difficulty) - 1
+            value: Math.pow(2, difficulty) - 1
+        },
+        whichTowerClicked: {
+            get: function() {
+                return _whichTowerClicked;
+            },
+            set: function(towerIndex) {
+                _isTowerClicked =
+                towerIndex;
+            }
         },
         towers: {
             get: function() {
-                return _towers;
-            },
-            push: function(tower) {
-                if (_towers.length < 3) {
-                    _towers.push(tower);
-                    return _towers.length;
-                }
-            },
-            pop: function() {},
-            copyWithin: function() {},
-            fill: function() {},
-            reverse: function() {},
-            shift: function() {},
-            sort: function() {},
-            splice: function() {},
-            unshift: function() {}
+                return _towers.slice();
+            }
         }
     });
 }
 
-game.prototype.isVictory = function() {
+Game.prototype.isSolved = function() {
     /*
     This will return true if the player won, otherwise false.
     */
+    return this.towers[0].numberOfDisks == 0 && this.towers[1].numberOfDisks == 0 && this.towers[2].numberOfDisks == this.difficulty;
+};
+
+Game.prototype.moveDisk = function(srcTowerIndex, destTowerIndex) {
+    /*
+    if the move is legal, do it and return true.
+    if the move is illegal, don't do it, return false.
+    */
+    var srcTower = this.towers[srcTowerIndex];
+    var destTower = this.towers[destTowerIndex];
+    var src_top = srcTower.getTopDisk();
+    var dest_top = destTower.getTopDisk();
+    if(src_top && (src_top.moveToTower(destTower))) {
+        srcTower.popDisk();
+        destTower.pushDisk(src_top);
+        this.numberOfMoves++;
+        return true;
+    }
+    return false;
 };

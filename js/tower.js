@@ -4,68 +4,56 @@
 
 function Tower(position, numberOfDisks) {
     /*
-    This is a tower object, it will have the attributes: position, disks (array of disks), isTowerClicked(flag)
-    and the methods: drawDisks, addDisk, removeDisk and getTopDisk
+    This is a tower object, it will have the attributes: position, disks (array of disks), number of disks
+    and the methods: pushDisk, popDisk and getTopDisk
     */
 
-    var _disks = [];
-    var _isTowerClicked = false;
-
     // your code...
+    var _disks = [];
+    var _numberOfDisks = numberOfDisks;
     Object.defineProperties(this, {
         position: {
             value: position
         },
-        isTowerClicked: {
+        numberOfDisks: {
             get: function() {
-                return _isTowerClicked;
-            },
-            set: function(bool) {
-                _isTowerClicked = Boolean(bool);
+                return _numberOfDisks;
             }
         },
         disks: {
             get: function() {
-                return _disks;
-            },
-            push: function(disk) {
-                _disks.push(disk);
-                return _disks.length;
-            },
-            pop: function() {},
-            copyWithin: function() {},
-            fill: function() {},
-            reverse: function() {},
-            shift: function() {},
-            sort: function() {},
-            splice: function() {},
-            unshift: function() {}
+                return _disks.slice();
+            }
         }
     });
+    this.pushDisk = function(disk) {
+        /*
+        push disk to the tower
+        */
+        _disks.push(disk);
+        _numberOfDisks++;
+        return _disks.length;
+    };
+    this.popDisk = function(disk) {
+        /*
+        pops a disk from the tower
+        */
+        _numberOfDisks--;
+        return _disks.pop();
+    };
+    for (var i = _numberOfDisks; i > 0; i--) {
+        _disks.push(new Disk(this, i));
+    }
 }
-
-Tower.prototype.drawDisks = function() {
-    /*
-    draw the disks of the tower
-    */
-
-    // your code ...
-};
-
-Tower.prototype.add_disk = function(disk) {
-    /*
-    add a disk to the tower
-    */
-};
-
-Tower.prototype.remove_disk = function(disk) {
-    /*
-    remove a disk from the tower, return 1 if removed successfully, 0 if the tower is empty, 2 if the this specific disk isn't on that tower and 3 if it's there but illegal to remove
-    */
-};
 
 Tower.prototype.getTopDisk = function() {
     /*
     returns the top disk of the tower and null if it's empty
     */
+    var topDisk = null;
+    var numberOfDisks = this.numberOfDisks;
+    if (numberOfDisks > 0) {
+        topDisk = this.disks[numberOfDisks - 1];
+    }
+    return topDisk;
 };
