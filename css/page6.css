@@ -84,7 +84,7 @@ body {
     z-index: 19;
     height: 20px;
     border-radius: 10px;
-    background-color: white;
+    background-color: green;
 }
 
 #towers li[id="disc-1"] {

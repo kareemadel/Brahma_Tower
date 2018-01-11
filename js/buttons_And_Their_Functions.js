@@ -43,9 +43,9 @@ var clickables = {
 
     page6: {
         movesDiv: document.getElementById("moves"),
-        tower1: document.getElementById("tower-1"),
-        tower2: document.getElementById("tower-2"),
-        tower3: document.getElementById("tower-3"),
+        tower0: document.getElementById("tower-1"),
+        tower1: document.getElementById("tower-2"),
+        tower2: document.getElementById("tower-3"),
         restartBtn: document.getElementById("restartButton")
     }
 };
@@ -76,9 +76,9 @@ function onclickAttrIntializer() {
     }
     clickables.page5.mainMenuButton.addEventListener('click', mainMenuButtonjj);
     clickables.page6.restartBtn.addEventListener('click', restart_btn);
+    clickables.page6.tower0.addEventListener('click', handleTowers);
     clickables.page6.tower1.addEventListener('click', handleTowers);
     clickables.page6.tower2.addEventListener('click', handleTowers);
-    clickables.page6.tower3.addEventListener('click', handleTowers);
 }
 //page 1
 function Submit_btn(e) {
@@ -188,96 +188,65 @@ function movesDiv_func(argument) {
 }
 
 function restart_btn() {
-    // body...
+    init();
 }
 
 
 
 ///////////////////Game Functions////////////
-function handleTowers(towerClickedValue) {
+function handleTowers(e) {
     // handle the frontend of the towers and disc movements && check for isSolved() function
-    if (isTowerClicked == null) 
-    {
-        if (towersArr[towerClickedValue][0].length != 0)
-        {
-            isTowerClicked = towerClickedValue;
-            towersArr[towerClickedValue][1].lastChild.style.backgroundColor = "black";
+    var tower = e.currentTarget;
+    var towerClickedValue = Number(tower.getAttribute("value"));
+    var whichTowerClicked = newGame.whichTowerClicked;
+    if (whichTowerClicked == null) {
+        if (!newGame.isTowerEmpty(towerClickedValue)) {
+            newGame.whichTowerClicked = towerClickedValue;
+            whichTowerClicked = towerClickedValue;
+            tower.lastChild.style.backgroundColor = "black";
         }
-    }
-    else {
-            towersArr[isTowerClicked][1].lastChild.style.backgroundColor = "white";
-            var moveStatus = moveDisc(isTowerClicked, towerClickedValue);
-            moves += 1;
-            clickables.page6.movesDiv.innerHTML = moves + " move(s)";
-            if (moveStatus == 1) {
-                emptyTowers();
-                drawDiscs();
-            }
-            else {
-                $("ul").effect("shake");
-            }
-            isTowerClicked = null;
-    if (isSolved()) 
-    {
-        clickables.page6.movesDiv.innerHTML = "You won with " + moves + " moves!";
-    }
-}
-}
-
-function moveDisc(from_Tower, to_Tower) {
-    var towerFrom = towersArr[from_Tower][0];
-    var towerTo = towersArr[to_Tower][0];
-
-    if (towerFrom.length == 0) {
-        return 0;
-    }
-    else if (towerTo.length == 0) {
-        towerTo.push(towerFrom.pop());
-        return 1;
-    }
-    else if (towerFrom[towerFrom.length - 1] > towerTo[towerTo.length - 1]){
-        return 0;
-    }
-    else {
-        towerTo.push(towerFrom.pop());
-        return 1;
+    } else {
+        var firstClickedTower = clickables.page6["tower" + whichTowerClicked];
+        var moves = newGame.numberOfMoves;
+        firstClickedTower.lastChild.style.backgroundColor = "white";
+        // var moveStatus = moveDisc(isTowerClicked, towerClickedValue);
+        var moveStatus = newGame.moveDisk(Number(whichTowerClicked), Number(towerClickedValue));
+        clickables.page6.movesDiv.innerHTML = moves + " move(s)";
+        if (moveStatus) {
+            emptyTowers();
+            drawDiscs();
+        } else {
+            $("ul").effect("shake");
+        }
+        newGame.whichTowerClicked = null;
+        if (newGame.isSolved()) {
+            clickables.page6.movesDiv.innerHTML = "You won with " + moves + " moves!";
+        }
     }
 }
 
 function init(argument) {
     // intialize towers in backend and call the drawDiscs function
     emptyTowers();
-    towersArr = [[[],tower1], [[],tower2], [[],tower3]];
-    moves   = 0;
-
-    for (var i = discs; i > 0; i--)
-        towers[0][0].push(i);
+    newGame = new Game(3);
     drawDiscs();
 }
 
 function emptyTowers() {
     // delete the html content of <ul> towers tags
     for (var i = 0; i < 3; i++) {
-            towersArr[i][1].innerHTML = "";
-        }
+        clickables.page6["tower" + i].innerHTML = "";
+    }
 }
 
 function drawDiscs() {
     // draw the discs according to handled backend
     emptyTowers();
     for (var i = 0; i < 3; i++) {
-        if ((towersArr[i][0].length != 0)) {
-            for (var j = 0; j < towersArr[i][0].length; j++) {
-                towersArr[i][1].innerHTML = "<li id='disc-" + towersArr[i][0][j] + "' value='" + towersArr[i][0][j] + "'></li>";
+        if (!newGame.isTowerEmpty(i)) {
+            for (var j = 0; j < newGame.towers[i].numberOfDisks; j++) {
+                clickables.page6["tower" + i].innerHTML += "<li id='disc-" + newGame.towers[i].disks[j].width + "' value='" + newGame.towers[i].disks[j].width + "'></li>";
             }
         }
     }
-}
-
-function isSolved() {
-    // used to check whether he won or not
-    if ((towersArr[0][0].length == 0) && (towersArr[1][0].length == 0) && (towersArr[2][0].length == discs))
-        return 1;
-    else
-        return 0;
 }

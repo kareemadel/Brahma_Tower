@@ -58,7 +58,7 @@ function Game(difficulty) {
                 return _whichTowerClicked;
             },
             set: function(towerIndex) {
-                _isTowerClicked =
+                _whichTowerClicked =
                     towerIndex;
             }
         },
@@ -75,6 +75,10 @@ Game.prototype.isSolved = function() {
     This will return true if the player won, otherwise false.
     */
     return this.towers[0].numberOfDisks == 0 && this.towers[1].numberOfDisks == 0 && this.towers[2].numberOfDisks == this.difficulty;
+};
+
+Game.prototype.isTowerEmpty = function(towerIndex) {
+    return this.towers[towerIndex].disks.length == 0;
 };
 
 Game.prototype.moveDisk = function(srcTowerIndex, destTowerIndex) {
