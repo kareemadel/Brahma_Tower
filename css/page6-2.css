@@ -1,0 +1,16 @@
+#disk1, #disk2, #disk3, #disk4, #disk5, #disk6 {
+  height: 27px;
+  /*width: 140px;*/
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin:0 auto;  
+  position: relative;
+  z-index: 9;
+}
+#disk1 {width: 40px;}
+#disk2 {width: 60px;}
+#disk3 {width: 80px;}
+#disk4 {width: 100px;}
+#disk5 {width: 120px;}
+#disk6 {width: 140px;}

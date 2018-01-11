@@ -5,6 +5,8 @@ function flip(current_page, target_page) {
     document.getElementById("page" + target_page).style.display = "";
 }
 
+flip(0,6);
+
 
 //////////////////////////////////////////////////////////////
 //////// All Clickables On All Pages As A Global Object///////
@@ -174,3 +176,4 @@ function isSolved() {
     // used to check whether he won or not
 }
 
+onclickAttrIntializer();
