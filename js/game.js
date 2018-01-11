@@ -59,7 +59,7 @@ function Game(difficulty) {
             },
             set: function(towerIndex) {
                 _isTowerClicked =
-                towerIndex;
+                    towerIndex;
             }
         },
         towers: {
@@ -86,7 +86,7 @@ Game.prototype.moveDisk = function(srcTowerIndex, destTowerIndex) {
     var destTower = this.towers[destTowerIndex];
     var src_top = srcTower.getTopDisk();
     var dest_top = destTower.getTopDisk();
-    if(src_top && (src_top.moveToTower(destTower))) {
+    if (src_top && (src_top.moveToTower(destTower))) {
         srcTower.popDisk();
         destTower.pushDisk(src_top);
         this.numberOfMoves++;

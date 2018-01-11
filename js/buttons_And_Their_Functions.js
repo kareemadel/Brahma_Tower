@@ -10,52 +10,52 @@ function flip(current_page, target_page) {
 //////// All Clickables On All Pages As A Global Object///////
 
 var clickables = {
-    page1 : {
-                SubmitBtn : document.getElementById("submitBtn")
-            },
+    page1: {
+        SubmitBtn: document.getElementById("submitBtn")
+    },
 
-    page2 : {
-                StartBtn : document.getElementById("startButton")
-            },
+    page2: {
+        StartBtn: document.getElementById("startButton")
+    },
 
-    page3 : {
-                mainMenuBtn : document.getElementById("mainMenuBtn"),
-                skipButton : document.getElementById("skipBtn")
-            },
+    page3: {
+        mainMenuBtn: document.getElementById("mainMenuBtn"),
+        skipButton: document.getElementById("skipBtn")
+    },
 
-    page4 : {
-                easy : document.getElementById("easy"),
-                average : document.getElementById("average"),
-                hard : document.getElementById("hard"),
-                insane : document.getElementById("insane"),
+    page4: {
+        easy: document.getElementById("easy"),
+        average: document.getElementById("average"),
+        hard: document.getElementById("hard"),
+        insane: document.getElementById("insane"),
 
-            },
+    },
 
-    page5 : {
-                charmander : document.getElementById("charmander"),
-                pikachu : document.getElementById("pikachu"),
-                bulbasaur : document.getElementById("bulbasaur"),
-                squirtle : document.getElementById("squirtle"),
-                mainMenuButton : document.getElementById("mainMenuButton01")
+    page5: {
+        charmander: document.getElementById("charmander"),
+        pikachu: document.getElementById("pikachu"),
+        bulbasaur: document.getElementById("bulbasaur"),
+        squirtle: document.getElementById("squirtle"),
+        mainMenuButton: document.getElementById("mainMenuButton01")
 
 
-            },
+    },
 
-    page6 : {
-                movesDiv : document.getElementById("moves"),
-                tower1 : document.getElementById("tower-1"),
-                tower2 : document.getElementById("tower-2"),
-                tower3 : document.getElementById("tower-3"),
-                restartBtn : document.getElementById("restartButton")
-            }
+    page6: {
+        movesDiv: document.getElementById("moves"),
+        tower1: document.getElementById("tower-1"),
+        tower2: document.getElementById("tower-2"),
+        tower3: document.getElementById("tower-3"),
+        restartBtn: document.getElementById("restartButton")
+    }
 };
 var globalElements = {
-        yourcharacter: document.getElementById("yourCharacter"),
-        first:document.getElementById("first"),
-        nearopt:document.getElementById("nearopt"),
-        optimum:document.getElementById("optimum"),
-        insane:document.getElementById("insane")
-}
+    yourcharacter: document.getElementById("yourCharacter"),
+    first: document.getElementById("first"),
+    nearopt: document.getElementById("nearopt"),
+    optimum: document.getElementById("optimum"),
+    insane: document.getElementById("insane")
+};
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 //// Buttons' Functions
@@ -90,19 +90,16 @@ function Submit_btn(e) {
     */
 
     // body...
-    function validateName (IdForTextInput)
-    {
+    function validateName(IdForTextInput) {
         var content = document.getElementById(IdForTextInput).value;
         var pattern = new RegExp("^[a-zA-Z]{3,15}$");
         return pattern.test(content);
     }
     e.preventDefault();
-    if (!validateName("playerName"))
-    {
+    if (!validateName("playerName")) {
         alert("too short");
-    }
-    else {
-      flip(0,2)
+    } else {
+        flip(0, 2);
     }
 
 }
@@ -125,14 +122,14 @@ function mainMenu_btn() {
     takes only one parameter, which is the calling event.
     switch to page2
     */
-    flip(000,2)
+    flip(0, 2);
 }
 
 function skip_btn() {
     /*
     switch to page4
     */
-    flip(000,4);
+    flip(0, 4);
 }
 
 ////////////////////////////////
@@ -159,29 +156,29 @@ function character(e) {
     */
 
     // body...
-    var target= e.target.id;
-    var targetsrc=e.target.src;
+    var target = e.target.id;
+    var targetsrc = e.target.src;
     // globalElements.yourcharacter
     switch (target) {
-      case "charmander":
-       globalElements.yourcharacter.src=targetsrc
-        break;
-      case "pikachu":
-      globalElements.yourcharacter.src=targetsrc
-        break;
-      case "bulbasaur":
-      globalElements.yourcharacter.src=targetsrc
-        break;
-      case "squirtle":
-      globalElements.yourcharacter.src=targetsrc
-        break;
+        case "charmander":
+            globalElements.yourcharacter.src = targetsrc;
+            break;
+        case "pikachu":
+            globalElements.yourcharacter.src = targetsrc;
+            break;
+        case "bulbasaur":
+            globalElements.yourcharacter.src = targetsrc;
+            break;
+        case "squirtle":
+            globalElements.yourcharacter.src = targetsrc;
+            break;
 
     }
-    flip(0,6)
+    flip(0, 6);
 }
 
-function mainMenuButtonjj(){
-  flip(0,2)
+function mainMenuButtonjj() {
+    flip(0, 2);
 }
 
 //////////////////////////////////

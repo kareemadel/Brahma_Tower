@@ -83,7 +83,7 @@ function session(name) {
 
         // your code...
         if (newGame.isSolved()) {
-        this.checkBadge(newGame);
+            this.checkBadge(newGame);
             _games.push(newGame);
         }
     };
