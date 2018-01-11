@@ -194,26 +194,90 @@ function restart_btn() {
 
 
 ///////////////////Game Functions////////////
-function handleTowers(towerClicked) {
+function handleTowers(towerClickedValue) {
     // handle the frontend of the towers and disc movements && check for isSolved() function
+    if (isTowerClicked == null) 
+    {
+        if (towersArr[towerClickedValue][0].length != 0)
+        {
+            isTowerClicked = towerClickedValue;
+            towersArr[towerClickedValue][1].lastChild.style.backgroundColor = "black";
+        }
+    }
+    else {
+            towersArr[isTowerClicked][1].lastChild.style.backgroundColor = "white";
+            var moveStatus = moveDisc(isTowerClicked, towerClickedValue);
+            moves += 1;
+            clickables.page6.movesDiv.innerHTML = moves + " move(s)";
+            if (moveStatus == 1) {
+                emptyTowers();
+                drawDiscs();
+            }
+            else {
+                $("ul").effect("shake");
+            }
+            isTowerClicked = null;
+    if (isSolved()) 
+    {
+        clickables.page6.movesDiv.innerHTML = "You won with " + moves + " moves!";
+    }
+}
 }
 
 function moveDisc(from_Tower, to_Tower) {
-    // body...
+    var towerFrom = towersArr[from_Tower][0];
+    var towerTo = towersArr[to_Tower][0];
+
+    if (towerFrom.length == 0) {
+        return 0;
+    }
+    else if (towerTo.length == 0) {
+        towerTo.push(towerFrom.pop());
+        return 1;
+    }
+    else if (towerFrom[towerFrom.length - 1] > towerTo[towerTo.length - 1]){
+        return 0;
+    }
+    else {
+        towerTo.push(towerFrom.pop());
+        return 1;
+    }
 }
 
 function init(argument) {
     // intialize towers in backend and call the drawDiscs function
+    emptyTowers();
+    towersArr = [[[],tower1], [[],tower2], [[],tower3]];
+    moves   = 0;
+
+    for (var i = discs; i > 0; i--)
+        towers[0][0].push(i);
+    drawDiscs();
 }
 
 function emptyTowers() {
     // delete the html content of <ul> towers tags
+    for (var i = 0; i < 3; i++) {
+            towersArr[i][1].innerHTML = "";
+        }
 }
 
 function drawDiscs() {
     // draw the discs according to handled backend
+    emptyTowers();
+    for (var i = 0; i < 3; i++) {
+        if ((towersArr[i][0].length != 0)) {
+            for (var j = 0; j < towersArr[i][0].length; j++) {
+                towersArr[i][1].innerHTML = "<li id='disc-" + towersArr[i][0][j] + "' value='" + towersArr[i][0][j] + "'></li>";
+            }
+        }
+    }
 }
 
 function isSolved() {
     // used to check whether he won or not
+    if ((towersArr[0][0].length == 0) && (towersArr[1][0].length == 0) && (towersArr[2][0].length == discs))
+        return 1;
+    else
+        return 0;
 }
