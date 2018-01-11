@@ -84,7 +84,9 @@ body {
     z-index: 19;
     height: 20px;
     border-radius: 10px;
-    background-color: green;
+    border-style: solid;
+    border-color: black;
+    background-color: #e4b326;
 }
 
 #towers li[id="disc-1"] {
@@ -117,7 +119,7 @@ body {
 
 /**/
 
-#mainMenuButton {
+#mainMenuButton6 {
     background: #1abc9c;
     border: none;
     color: white;

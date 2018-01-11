@@ -90,10 +90,10 @@ Game.prototype.moveDisk = function(srcTowerIndex, destTowerIndex) {
     var destTower = this.towers[destTowerIndex];
     var src_top = srcTower.getTopDisk();
     var dest_top = destTower.getTopDisk();
+    this.numberOfMoves++;
     if (src_top && (src_top.moveToTower(destTower))) {
         srcTower.popDisk();
         destTower.pushDisk(src_top);
-        this.numberOfMoves++;
         return true;
     }
     return false;

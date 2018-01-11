@@ -4,11 +4,11 @@
 
 var EASY = 3;
 var AVERAGE = 4;
-var HARD = 7;
-var INSANE = 15;
-flip(0, 6);
+var HARD = 5;
+var INSANE = 7;
+// flip(0, 4);
 onclickAttrIntializer();
-init();
+// init();
 // var newSession = new session("kareem");
 // setInterval(function() {
 //     newSession.endTime = Date.now();

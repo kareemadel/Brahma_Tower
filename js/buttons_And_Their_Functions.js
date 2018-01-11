@@ -28,6 +28,7 @@ var clickables = {
         average: document.getElementById("average"),
         hard: document.getElementById("hard"),
         insane: document.getElementById("insane"),
+        mainMenuBtn4: document.getElementById("mainMenuButton4")
 
     },
 
@@ -46,7 +47,8 @@ var clickables = {
         tower0: document.getElementById("tower-1"),
         tower1: document.getElementById("tower-2"),
         tower2: document.getElementById("tower-3"),
-        restartBtn: document.getElementById("restartButton")
+        restartBtn: document.getElementById("restartButton"),
+        mainMenuBtn6: document.getElementById("mainMenuButton6")
     }
 };
 var globalElements = {
@@ -56,6 +58,10 @@ var globalElements = {
     optimum: document.getElementById("optimum"),
     insane: document.getElementById("insane")
 };
+//////////////////////////////////////////////////////////////
+//////////////////// Game Instance///////////////////////////
+var newGame;
+
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 //// Buttons' Functions
@@ -68,13 +74,17 @@ function onclickAttrIntializer() {
     clickables.page2.StartBtn.addEventListener('click', Start_btn);
     clickables.page3.mainMenuBtn.addEventListener('click', mainMenu_btn);
     clickables.page3.skipButton.addEventListener('click', skip_btn);
-    for (var k in clickables.page4) {
-        clickables.page4[k].addEventListener('click', difficulty);
-    }
-    for (k in clickables.page5) {
-        clickables.page5[k].addEventListener('click', character);
-    }
-    clickables.page5.mainMenuButton.addEventListener('click', mainMenuButtonjj);
+    clickables.page4.easy.addEventListener('click', difficulty);
+    clickables.page4.average.addEventListener('click', difficulty);
+    clickables.page4.hard.addEventListener('click', difficulty);
+    clickables.page4.insane.addEventListener('click', difficulty);
+    clickables.page4.mainMenuBtn4.addEventListener('click', mainMenu_btn);
+    clickables.page5.pikachu.addEventListener('click', character);
+    clickables.page5.charmander.addEventListener('click', character);
+    clickables.page5.bulbasaur.addEventListener('click', character);
+    clickables.page5.squirtle.addEventListener('click', character);
+    clickables.page5.mainMenuButton.addEventListener('click', mainMenu_btn);
+    clickables.page6.mainMenuBtn6.addEventListener('click', mainMenu_btn);
     clickables.page6.restartBtn.addEventListener('click', restart_btn);
     clickables.page6.tower0.addEventListener('click', handleTowers);
     clickables.page6.tower1.addEventListener('click', handleTowers);
@@ -113,6 +123,7 @@ function Start_btn(e) {
     */
 
     // body...
+    flip(0,3);
 }
 
 // page 3
@@ -144,6 +155,24 @@ function difficulty(e) {
     */
 
     // body...
+    var levelOfDifficulty = e.currentTarget.getAttribute("id");
+        switch (levelOfDifficulty) {
+        case "easy":
+            level = EASY;
+            break;
+        case "average":
+            level = AVERAGE;
+            break;
+        case "hard":
+            level = HARD;
+            break;
+        case "insane":
+            level = INSANE;
+            break;
+    }
+    flip(0,5);
+
+
 }
 
 //////////////////////////////////
@@ -174,12 +203,13 @@ function character(e) {
             break;
 
     }
+    init();
     flip(0, 6);
 }
 
-function mainMenuButtonjj() {
-    flip(0, 2);
-}
+// function mainMenuButtonjj() {
+//     flip(0, 2);
+// }
 
 //////////////////////////////////
 // page 6
@@ -207,17 +237,17 @@ function handleTowers(e) {
         }
     } else {
         var firstClickedTower = clickables.page6["tower" + whichTowerClicked];
-        var moves = newGame.numberOfMoves;
-        firstClickedTower.lastChild.style.backgroundColor = "white";
-        // var moveStatus = moveDisc(isTowerClicked, towerClickedValue);
+        var moves = Number(newGame.numberOfMoves) + 1;
+        firstClickedTower.lastChild.style.backgroundColor = "#e4b326";
         var moveStatus = newGame.moveDisk(Number(whichTowerClicked), Number(towerClickedValue));
         clickables.page6.movesDiv.innerHTML = moves + " move(s)";
         if (moveStatus) {
             emptyTowers();
             drawDiscs();
-        } else {
-            $("ul").effect("shake");
         }
+        //  else {
+        //     $("ul").effect("shake");
+        // }
         newGame.whichTowerClicked = null;
         if (newGame.isSolved()) {
             clickables.page6.movesDiv.innerHTML = "You won with " + moves + " moves!";
@@ -228,7 +258,8 @@ function handleTowers(e) {
 function init(argument) {
     // intialize towers in backend and call the drawDiscs function
     emptyTowers();
-    newGame = new Game(3);
+    clickables.page6.movesDiv.innerHTML = "0 move(s)";
+    newGame = new Game(level);
     drawDiscs();
 }
 
@@ -250,3 +281,5 @@ function drawDiscs() {
         }
     }
 }
+
+
