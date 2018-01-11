@@ -39,7 +39,7 @@ function session(name) {
         },
         games: {
             get: function() {
-                return _games;
+                return _games.slice();
             }
         },
         firstGame: {

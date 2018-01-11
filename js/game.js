@@ -58,7 +58,7 @@ function Game(difficulty) {
                 return _whichTowerClicked;
             },
             set: function(towerIndex) {
-                _isTowerClicked =
+                _whichTowerClicked =
                     towerIndex;
             }
         },
