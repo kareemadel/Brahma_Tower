@@ -132,11 +132,11 @@ body {
 }
 
 #mainMenuButtonDiv {
-    position: absolute;
-    top: 571px;
-    left: 10px;
     width: 190px;
     height: 70px;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
 }
 
 #restartButton {
@@ -152,11 +152,11 @@ body {
 }
 
 #restartDiv {
-    position: absolute;
-    top: 486px;
-    left: 10px;
     width: 190px;
     height: 70px;
+    position: fixed;
+    bottom: 120px;
+    left: 10px;
 }
 
 #playPause {
