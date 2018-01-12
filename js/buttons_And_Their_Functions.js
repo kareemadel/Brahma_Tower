@@ -194,17 +194,20 @@ function continueGame() {
 }
 
 function isGameInProgress() {
-    return newGame && newGame.numberOfMoves > 0;
+    return typeof newGame !== 'undefined' && newGame.numberOfMoves > 0 && !newGame.isSolved();
 }
 
 // page 3
-function mainMenu_btn() {
+function mainMenu_btn(e) {
     /*
     takes only one parameter, which is the calling event.
     takes only one parameter, which is the calling event.
     switch to page2
     */
-
+    if (typeof e !== 'undefined' && e.target == clickables.page6.mainMenuBtn6) {
+        clearAllIntervals();
+        span.click();
+    }
     if (isGameInProgress()) {
         clickables.page2.continueBtn.parentElement.style.display = "inline";
         newSession.previousGame = newGame;
@@ -292,6 +295,8 @@ function character(e) {
 // page 6
 
 function restart_btn() {
+    clearAllIntervals();
+    span.click();
     init();
 }
 
@@ -323,6 +328,15 @@ function show_solution(interval) {
     solution_steps = [];
 }
 
+function clearAllIntervals() {
+    // create new one to get the last timeout id
+    var id = window.setTimeout(function() {}, 0);
+    // loop the ids and clear them one by one.
+    while (id--) {
+        window.clearTimeout(id); // will do nothing if no timeout with id is present
+    }
+}
+
 function showOptimalSolution(interval) {
     /*
     switch the gamee and session to temporary objects, solve the games
@@ -330,12 +344,7 @@ function showOptimalSolution(interval) {
     */
     if (isAutoSolve) {
         // first we need to clean all time outside
-        // create new one to get the last timeout id
-        var id = window.setTimeout(function() {}, 0);
-        // loop the ids and clear them one by one.
-        while (id--) {
-            window.clearTimeout(id); // will do nothing if no timeout with id is present
-        }
+        clearAllIntervals();
         // reset the game to original state
         span.click();
     } else {
@@ -348,6 +357,27 @@ function showOptimalSolution(interval) {
     }
 
 }
+
+function cheat(e) {
+    map[e.key] = e.type == 'keydown';
+    console.log(e.type);
+    console.log(e.key);
+    console.log(map['Shift']);
+    console.log(map['Alt']);
+    console.log(map['q']);
+    console.log(e.type == 'keydown');
+    if (map['Shift'] && map['Alt'] && map['Q']) {
+        init();
+        show_solution(100);
+    }
+}
+document.getElementById("page6").addEventListener('keydown', cheat);
+document.getElementById("page6").addEventListener('keyup', cheat);
+
+var map = {}; // You could also use an array
+var onkeyup = function(e) {
+    map[e.keyCode] = e.type == 'keydown';
+};
 
 ///////////////////Game Functions////////////
 function handleTowers(e) {
