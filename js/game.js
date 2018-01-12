@@ -2,7 +2,7 @@
     This will contain the implementation of the game object
 */
 
-function Game(difficulty) {
+function Game(difficulty, chosedCharacter) {
     /*
     This will contain the time of start and end of the game, the level of difficulty of that game(the number of disks associated with each level), the character, the number of moves, the optimum number of moves, array of towers
     methods: isVictory,
@@ -12,7 +12,6 @@ function Game(difficulty) {
     // your code...
     var _endTime = Date.now();
     var _numberOfMoves = 0;
-    var _character;
     var _whichTowerClicked = null;
     var _towers = [];
     _towers.push(new Tower(0, difficulty));
@@ -32,12 +31,7 @@ function Game(difficulty) {
             }
         },
         character: {
-            get: function() {
-                return _character;
-            },
-            set: function(newCharacter) {
-                _character = newCharacter;
-            }
+            value: chosedCharacter
         },
         numberOfMoves: {
             get: function() {

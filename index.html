@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/page5.css">
     <link rel="stylesheet" type="text/css" href="css/page6.css">
     <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/victory_message.css">
 </head>
 
 <body>
@@ -21,18 +22,20 @@
     <a id="playPause" href="#" class="speaker">
         <span></span>
         </a>
-    <img class="badges" id="first" src="assets/images/1st image(g).png" />
-    <img class="badges" id="nearopt" src="assets/images/nearopt(g).png" />
-    <img class="badges" id="optimum" src="assets/images/optimum(g).png" />
+    <img class="badges" id="firstGameBadge" src="assets/images/1stgame(g).png" />
+    <img class="badges" id="nearOptBadge" src="assets/images/nearopt(g).png" />
+    <img class="badges" id="optimumBadge" src="assets/images/optimum(g).png" />
     <img class="badges" id="insaneBadge" src="assets/images/insane(g).png" />
     <img id="yourCharacter" src="assets/images/yourcharacter.jpg" />
 
-    <div id="cover"><div id="loader">Loading...</div></div>
+    <div id="cover">
+        <div id="loader">Loading...</div>
+    </div>
 
     <div id="page1">
         <h1 id="gameTitle"><span data-shadow-text="Text-Shadow">Brahama Tower</span></h1>
         <div class="login">
-            <input id="playerName" type="text" name="player_Name" placeholder="Username at least 3 characters" required />
+            <input id="playerName" type="text" name="player_Name" placeholder="Username at least 3 characters" />
             <button id="submitBtn" type="submit" class="btn">Next</button>
         </div>
     </div>
@@ -65,7 +68,7 @@
             </div>
         </div>
         <div>
-            <img class="chr" src="assets/images/chr.png" />
+            <img class="chr" src="assets/images/Cute_pikachu_with_hat_by_mlpochea-d63xlom.png" />
         </div>
 
         <div>
@@ -160,14 +163,29 @@
             <button class="btn" id="mainMenuButton6">Main Menu</button>
         </div>
     </div>
-    <script type="text/javascript" src="js/audio_button.js"></script>
-    <script type="text/javascript" src="js/buttons_And_Their_Functions.js"></script>
-    <script type="text/javascript" src="js/randomize_pg3.js"></script>
-    <script type="text/javascript" src="js/disk.js"></script>
-    <script type="text/javascript" src="js/game.js"></script>
-    <script type="text/javascript" src="js/session.js"></script>
-    <script type="text/javascript" src="js/tower.js"></script>
-    <script type="text/javascript" src="js/test.js"></script>
+
+    <!-- The VictoryMessage -->
+    <div id="myVictoryMessage" class="VictoryMessage">
+
+        <!-- VictoryMessage content -->
+        <div class="VictoryMessage-content">
+            <div class="VictoryMessage-header">
+                <span class="close">&times;</span>
+                <h2>Congratulations</h2>
+            </div>
+            <div class="VictoryMessage-body">
+                <p id="VictoryMessageBody">You Have Won.</p>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/audio_button.js"></script>
+        <script type="text/javascript" src="js/buttons_And_Their_Functions.js"></script>
+        <script type="text/javascript" src="js/randomize_pg3.js"></script>
+        <script type="text/javascript" src="js/disk.js"></script>
+        <script type="text/javascript" src="js/game.js"></script>
+        <script type="text/javascript" src="js/session.js"></script>
+        <script type="text/javascript" src="js/tower.js"></script>
+        <script type="text/javascript" src="js/test.js"></script>
 </body>
 
 </html>

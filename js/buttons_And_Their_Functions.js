@@ -53,10 +53,10 @@ var clickables = {
 };
 var globalElements = {
     yourcharacter: document.getElementById("yourCharacter"),
-    first: document.getElementById("first"),
-    nearopt: document.getElementById("nearopt"),
-    optimum: document.getElementById("optimum"),
-    insane: document.getElementById("insane")
+    firstGameBadge: document.getElementById("firstGameBadge"),
+    nearOptBadge: document.getElementById("nearOptBadge"),
+    optimumBadge: document.getElementById("optimumBadge"),
+    insaneBadge: document.getElementById("insaneBadge")
 };
 //////////////////////////////////////////////////////////////
 //////////////////// Game Instance///////////////////////////
@@ -91,6 +91,11 @@ function onclickAttrIntializer() {
     clickables.page6.tower2.addEventListener('click', handleTowers);
 }
 //page 1
+function validateName(userName) {
+    var pattern = new RegExp("^[a-zA-Z][a-zA-Z0-9_]{3,14}$");
+    return pattern.test(userName);
+}
+
 function Submit_btn(e) {
     /*
     takes only one parameter, which is the calling event.
@@ -100,16 +105,13 @@ function Submit_btn(e) {
     */
 
     // body...
-    function validateName(IdForTextInput) {
-        var content = document.getElementById(IdForTextInput).value;
-        var pattern = new RegExp("^[a-zA-Z]{3,15}$");
-        return pattern.test(content);
-    }
     e.preventDefault();
-    if (!validateName("playerName")) {
-        alert("too short");
-    } else {
+    var userName = document.getElementById("playerName");
+    if (validateName(userName.value)) {
+        newSession = new session(userName);
         flip(0, 2);
+    } else {
+        alert("Invalid Name");
     }
 
 }
@@ -123,7 +125,7 @@ function Start_btn(e) {
     */
 
     // body...
-    flip(0,3);
+    flip(0, 3);
 }
 
 // page 3
@@ -156,7 +158,7 @@ function difficulty(e) {
 
     // body...
     var levelOfDifficulty = e.currentTarget.getAttribute("id");
-        switch (levelOfDifficulty) {
+    switch (levelOfDifficulty) {
         case "easy":
             level = EASY;
             break;
@@ -170,7 +172,7 @@ function difficulty(e) {
             level = INSANE;
             break;
     }
-    flip(0,5);
+    flip(0, 5);
 
 
 }
@@ -190,15 +192,19 @@ function character(e) {
     // globalElements.yourcharacter
     switch (target) {
         case "charmander":
+            chosenCharacter = "charmander";
             globalElements.yourcharacter.src = targetsrc;
             break;
         case "pikachu":
+            chosenCharacter = "pikachu";
             globalElements.yourcharacter.src = targetsrc;
             break;
         case "bulbasaur":
+            chosenCharacter = "bulbasaur";
             globalElements.yourcharacter.src = targetsrc;
             break;
         case "squirtle":
+            chosenCharacter = "squirtle";
             globalElements.yourcharacter.src = targetsrc;
             break;
 
@@ -239,19 +245,60 @@ function handleTowers(e) {
         var firstClickedTower = clickables.page6["tower" + whichTowerClicked];
         var moves = Number(newGame.numberOfMoves) + 1;
         firstClickedTower.lastChild.style.backgroundColor = "#e4b326";
-        var moveStatus = newGame.moveDisk(Number(whichTowerClicked), Number(towerClickedValue));
-        clickables.page6.movesDiv.innerHTML = moves + " move(s)";
-        if (moveStatus) {
-            emptyTowers();
-            drawDiscs();
+        if (whichTowerClicked != towerClickedValue) {
+            var moveStatus = newGame.moveDisk(whichTowerClicked, towerClickedValue);
+            clickables.page6.movesDiv.innerHTML = moves + " move(s)";
+            if (moveStatus) {
+                emptyTowers();
+                drawDiscs();
+            }
+            if (newGame.isSolved()) {
+                clickables.page6.movesDiv.innerHTML = "You won with " + moves + " moves!";
+                var VictoryMessageBody = document.getElementById("VictoryMessageBody");
+                VictoryMessageBody.innerHTML = "You won with " + moves + " moves!";
+                newGame.endTime = Date.now();
+                newSession.addGame(newGame);
+                var badgeObject = newSession.checkBadge(newGame);
+                for (var i in badgeObject) {
+                    if (badgeObject[i].includes(".png")) {
+                        globalElements[i].src = badgeObject[i];
+                        switch (i) {
+                            case "firstGameBadge":
+                                VictoryMessageBody.innerHTML += "<br /> You have won your first game.";
+                                break;
+                            case "nearOptBadge":
+                                VictoryMessageBody.innerHTML += "<br /> You have won with almost the optimum number of moves.";
+                                break;
+                            case "optimumBadge":
+                                VictoryMessageBody.innerHTML += "<br /> You have won with a perfect number of moves";
+                                break;
+                            case "insaneBadge":
+                                VictoryMessageBody.innerHTML += "<br /> You have won the INSANE level.";
+                                break;
+                        }
+                    }
+                }
+                var VictoryMessage = document.getElementById('myVictoryMessage');
+                var span = document.getElementsByClassName("close")[0];
+                VictoryMessage.style.display = "block";
+                // When the user clicks on <span> (x), close the VictoryMessage
+                span.onclick = function() {
+                    VictoryMessage.style.display = "none";
+                    mainMenu_btn();
+                };
+                // When the user clicks anywhere outside of the VictoryMessage, close it
+                window.onclick = function(event) {
+                    if (event.target == VictoryMessage) {
+                        VictoryMessage.style.display = "none";
+                        mainMenu_btn();
+                    }
+                };
+            }
         }
         //  else {
         //     $("ul").effect("shake");
         // }
         newGame.whichTowerClicked = null;
-        if (newGame.isSolved()) {
-            clickables.page6.movesDiv.innerHTML = "You won with " + moves + " moves!";
-        }
     }
 }
 
@@ -259,7 +306,7 @@ function init(argument) {
     // intialize towers in backend and call the drawDiscs function
     emptyTowers();
     clickables.page6.movesDiv.innerHTML = "0 move(s)";
-    newGame = new Game(level);
+    newGame = new Game(level, chosenCharacter);
     drawDiscs();
 }
 
@@ -281,5 +328,3 @@ function drawDiscs() {
         }
     }
 }
-
-

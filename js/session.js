@@ -12,10 +12,10 @@ function session(name) {
     var _endTime = Date.now();
     var _userName = name;
     var _games = [];
-    var _firstGame = false;
-    var _optimum = false;
-    var _nearOptimum = false;
-    var _insane = false;
+    var _firstGameBadge = false;
+    var _optimumBadge = false;
+    var _nearOptBadge = false;
+    var _insaneBadge = false;
 
     Object.defineProperties(this, {
         startTime: {
@@ -42,36 +42,36 @@ function session(name) {
                 return _games.slice();
             }
         },
-        firstGame: {
+        firstGameBadge: {
             get: function() {
-                return _firstGame;
+                return _firstGameBadge;
             },
             set: function(bool) {
-                _firstGame = Boolean(bool);
+                _firstGameBadge = Boolean(bool);
             }
         },
-        optimum: {
+        optimumBadge: {
             get: function() {
-                return _optimum;
+                return _optimumBadge;
             },
             set: function(bool) {
-                _optimum = Boolean(bool);
+                _optimumBadge = Boolean(bool);
             }
         },
-        nearOptimum: {
+        nearOptBadge: {
             get: function() {
-                return _nearOptimum;
+                return _nearOptBadge;
             },
             set: function(bool) {
-                _nearOptimum = Boolean(bool);
+                _nearOptBadge = Boolean(bool);
             }
         },
-        insane: {
+        insaneBadge: {
             get: function() {
-                return _insane;
+                return _insaneBadge;
             },
             set: function(bool) {
-                _insane = Boolean(bool);
+                _insaneBadge = Boolean(bool);
             }
         }
     });
@@ -83,7 +83,6 @@ function session(name) {
 
         // your code...
         if (newGame.isSolved()) {
-            this.checkBadge(newGame);
             _games.push(newGame);
         }
     };
@@ -94,14 +93,35 @@ session.prototype.checkBadge = function(newGame) {
     check if the player is entilted to a new badge and change the corresponging badge propertry if the player just unlocked a new badge, do nothing if the player isn't qualified to win new badge
     */
 
-    // your code...
-    if (newGame.isSolved()) {
-        this.firstGame = (this.games.length == 0) || this.firstGame;
-        // the difference between the actual and optimum number of moves
-        var delta = newGame.numberOfMoves - newGame.optimumNumberOfMoves;
-        this.optimum = (delta == 0) || this.optimum;
-        this.nearOptimum = (delta < 3 && !this.optimum) || this.nearOptimum;
 
-        this.insane = (newGame.difficulty == INSANE) || this.insane;
+
+
+    // your code...
+    // the difference between the actual and optimumBadge number of moves
+    var delta = newGame.numberOfMoves - newGame.optimumNumberOfMoves;
+    var badgeObject = {
+        firstGameBadge: "assets/images/1stgame",
+        nearOptBadge: "assets/images/nearopt",
+        optimumBadge: "assets/images/optimum",
+        insaneBadge: "assets/images/insane"
+    };
+    var currentGameBadges = {
+        firstGameBadge: this.games.length == 1,
+        nearOptBadge: delta < 3 && delta > 0,
+        optimumBadge: delta == 0,
+        insaneBadge: newGame.difficulty == INSANE
+    };
+    if (newGame.isSolved()) {
+        this.firstGameBadge = firstGameBadge || this.firstGameBadge;
+        this.optimumBadge = optimumBadge || this.optimumBadge;
+        this.nearOptBadge = nearOptBadge || this.nearOptBadge;
+
+        this.insaneBadge = insaneBadge || this.insaneBadge;
+        for (var i in badgeObject) {
+            if (currentGameBadges[i]) {
+                badgeObject[i] += ".png";
+            }
+        }
     }
+    return badgeObject;
 };
