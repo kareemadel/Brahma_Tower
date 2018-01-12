@@ -159,6 +159,22 @@ body {
     left: 10px;
 }
 
-#playPause {
+#optimumSolutionButton {
+    background: #1abc9c;
+    border: none;
+    color: white;
     cursor: pointer;
+    padding: 9px 10px;
+    font-size: 30px;
+    border-radius: 25px;
+    width: 200px;
+    height: 80px;
+}
+
+#optimumSolutionButtonDiv {
+    width: 190px;
+    height: 70px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }

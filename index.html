@@ -33,7 +33,7 @@
     </div>
 
     <div id="page1">
-        <h1 id="gameTitle1"><span data-shadow-text="Text-Shadow">Brahama Tower</span></h1>
+        <h1 id="gameTitle1"><span data-shadow-text="Text-Shadow">Brahma Tower</span></h1>
         <div class="login">
             <input id="playerName" type="text" name="player_Name" placeholder="Username at least 3 characters" />
             <button id="submitBtn" type="submit" class="btn">Next</button>
@@ -41,15 +41,18 @@
     </div>
 
     <div id="page2" style="display: none;">
-        <h1 id="gameTitle2"><span data-shadow-text="Text-Shadow" id="gameTitleSpan">Brahama Tower</span></h1>
+        <h1 id="gameTitle2"><span data-shadow-text="Text-Shadow" id="gameTitleSpan">Brahma Tower</span></h1>
         <div id="startButtonDiv">
             <button class="btn" id="startButton">Start</button>
+        </div>
+        <div id="continueBtnDiv">
+            <button class="btn" id="ContinueBtn">Continue</button>
         </div>
     </div>
 
     <div id="page3" style="display: none;">
         <div id="header">
-            <h3>Brahama Tower</h3>
+            <h3>Brahma Tower</h3>
         </div>
         <div>
             <div class="speech-bubble">
@@ -60,7 +63,7 @@
                     <p>Do you know that:<br/>The puzzle was invented by the French mathematician Édouard Lucas in 1883. There is a story about an Indian temple in Kashi Vishwanath which contains a large room with three time-worn posts in it, surrounded by
                         64 golden disks.</p>
 
-                    <p>Do you know that:<br/>According to the legend, Brahmin priests have been moving Brahama Tower disks in accordance with the immutable rules of Brahma since that time. It was beleived that, when the last move of the puzzle is completed,
+                    <p>Do you know that:<br/>According to the legend, Brahmin priests have been moving Brahma Tower disks in accordance with the immutable rules of Brahma since that time. It was beleived that, when the last move of the puzzle is completed,
                         the world will end.</p>
 
                     <p>Do you know that:<br/>In the film Rise of the Planet of the Apes (2011), this puzzle, called in the film the "Lucas Tower", is used as a test to study the intelligence of apes.</p>
@@ -162,6 +165,9 @@
         <div id="mainMenuButtonDiv">
             <button class="btn" id="mainMenuButton6">Main Menu</button>
         </div>
+        <div id="optimumSolutionButtonDiv">
+            <button class="btn" id="optimumSolutionButton">Optimum Solution</button>
+        </div>
     </div>
 
     <!-- The VictoryMessage -->
@@ -171,7 +177,7 @@
         <div class="VictoryMessage-content">
             <div class="VictoryMessage-header">
                 <span class="close">&times;</span>
-                <h2>Congratulations</h2>
+                <h2 id="VictoryHeader">Congratulations</h2>
             </div>
             <div class="VictoryMessage-body">
                 <p id="VictoryMessageBody">You Have Won.</p>
