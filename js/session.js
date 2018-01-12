@@ -12,10 +12,15 @@ function session(name) {
     var _endTime = Date.now();
     var _userName = name;
     var _games = [];
+    var _previous_game;
     var _firstGameBadge = false;
     var _optimumBadge = false;
     var _nearOptBadge = false;
     var _insaneBadge = false;
+    var _easyLevel = false;
+    var _averageLevel = false;
+    var _hardLevel = false;
+    var _insaneLevel = false;
 
     Object.defineProperties(this, {
         startTime: {
@@ -26,7 +31,9 @@ function session(name) {
                 return _endTime;
             },
             set: function(newTime) {
-                _endTime = newTime;
+                if (typeof newTime === 'number') {
+                    _endTime = newTime;
+                }
             }
         },
         userName: {
@@ -34,12 +41,24 @@ function session(name) {
                 return _userName;
             },
             set: function(name) {
-                _userName = name;
+                if (typeof name === 'string') {
+                    _userName = name;
+                }
             }
         },
         games: {
             get: function() {
                 return _games.slice();
+            }
+        },
+        previousGame: {
+            get: function() {
+                return _previous_game;
+            },
+            set: function(prevGame) {
+                if (prevGame instanceof Game) {
+                    _previous_game = prevGame;
+                }
             }
         },
         firstGameBadge: {
@@ -73,9 +92,40 @@ function session(name) {
             set: function(bool) {
                 _insaneBadge = Boolean(bool);
             }
+        },
+        easyLevel: {
+            get: function() {
+                return _easyLevel;
+            },
+            set: function(bool) {
+                _easyLevel = Boolean(bool);
+            }
+        },
+        averageLevel: {
+            get: function() {
+                return _averageLevel;
+            },
+            set: function(bool) {
+                _averageLevel = Boolean(bool);
+            }
+        },
+        hardLevel: {
+            get: function() {
+                return _hardLevel;
+            },
+            set: function(bool) {
+                _hardLevel = Boolean(bool);
+            }
+        },
+        insaneLevel: {
+            get: function() {
+                return _insaneLevel;
+            },
+            set: function(bool) {
+                _insaneLevel = Boolean(bool);
+            }
         }
     });
-
     this.addGame = function(newGame) {
         /*
         adds a game to the session, check if the player unlocked a badge
@@ -92,9 +142,6 @@ session.prototype.checkBadge = function(newGame) {
     /*
     check if the player is entilted to a new badge and change the corresponging badge propertry if the player just unlocked a new badge, do nothing if the player isn't qualified to win new badge
     */
-
-
-
 
     // your code...
     // the difference between the actual and optimumBadge number of moves

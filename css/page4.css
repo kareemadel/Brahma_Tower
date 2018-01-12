@@ -26,6 +26,7 @@ body {
     background-color: #c3bfa1;
     overflow: hidden;
     margin: 0px auto;
+    filter: grayscale(100%);
 }
 
 .level::after, .level::before {
@@ -49,14 +50,14 @@ body {
     border-bottom: 3em solid #02d6a4;
 }
 
-.level.difficultLevel::after {
+.level.hardLevel::after {
     border-top: 3em solid #e27161;
     border-left: 3em solid #00ac99;
     border-right: 3em solid transparent;
     border-bottom: 3em solid #02d6a4;
 }
 
-.level.hardLevel::after {
+.level.insaneLevel::after {
     border-top: 3em solid #e27161;
     border-left: 3em solid #00ac99;
     border-right: 3em solid #cd002f;

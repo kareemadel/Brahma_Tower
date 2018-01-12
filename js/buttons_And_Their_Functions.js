@@ -145,6 +145,9 @@ function mainMenu_btn() {
     takes only one parameter, which is the calling event.
     switch to page2
     */
+    if (newGame.numberOfMoves != 0) {
+        newSession.previousGame = newGame;
+    }
     flip(0, 2);
 }
 
@@ -263,7 +266,24 @@ function handleTowers(e) {
                 drawDiscs();
             }
             if (newGame.isSolved()) {
-                clickables.page6.movesDiv.innerHTML = "You won with " + moves + " moves!";
+                switch (newGame.difficulty) {
+                    case EASY:
+                        newSession.easyLevel = true;
+                        clickables.page4.easy.firstElementChild.setAttribute("style", "filter: grayscale(0%);");
+                        break;
+                    case AVERAGE:
+                        newSession.averageLevel = true;
+                        clickables.page4.average.firstElementChild.setAttribute("style", "filter: grayscale(0%);");
+                        break;
+                    case HARD:
+                        newSession.hardLevel = true;
+                        clickables.page4.hard.firstElementChild.setAttribute("style", "filter: grayscale(0%);");
+                        break;
+                    case INSANE:
+                        newSession.insaneLevel = true;
+                        clickables.page4.insane.firstElementChild.setAttribute("style", "filter: grayscale(0%);");
+                        break;
+                }
                 var VictoryMessageBody = document.getElementById("VictoryMessageBody");
                 VictoryMessageBody.innerHTML = "You won with " + moves + " moves!";
                 newGame.endTime = Date.now();
