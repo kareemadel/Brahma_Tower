@@ -119,6 +119,7 @@ function Submit_btn(e) {
     } else if (validateName(userName) == "notchar") {
         alert("Please enter only alphabetical letters.");
     } else {
+        nameElement.value = "";
         newSession = new session(userName);
         flip(0, 2);
     }

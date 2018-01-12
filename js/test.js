@@ -11,6 +11,7 @@ onclickAttrIntializer();
 // listner to wait for the page to load.
 window.addEventListener("load", function() {
     document.getElementById("cover").style.display = "none";
+    audio.play();
 });
 
 // listner to check before the user leave, update the the endTime of the session.
