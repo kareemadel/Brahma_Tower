@@ -101,8 +101,7 @@ function Submit_btn(e) {
     */
 
     // body...
-    function validateName(IdForTextInput) {
-        var content = document.getElementById(IdForTextInput).value;
+    function validateName(content) {
         var Pattern = new RegExp("^[a-zA-Z]{3,15}$");
         if (content.length < 3 || content.length > 15) {
             console.log('inv_len');
@@ -113,11 +112,14 @@ function Submit_btn(e) {
         }
     }
     e.preventDefault();
-    if (validateName("playerName") == "inv_len") {
+    var nameElement = document.getElementById("playerName");
+    var userName = nameElement.value;
+    if (validateName(userName) == "inv_len") {
         alert("Your username should be between 3 to 15 characters.");
-    } else if (validateName("playerName") == "notchar") {
+    } else if (validateName(userName) == "notchar") {
         alert("Please enter only alphabetical letters.");
     } else {
+        newSession = new session(userName);
         flip(0, 2);
     }
 

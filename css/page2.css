@@ -5,14 +5,14 @@ html {
     overflow: hidden;
 }
 
-#gameTitle {
+#gameTitle2 {
     font-family: 'Lily Script One', cursive;
     font-weight: bold;
     color: cornflowerblue;
     text-align: center;
     position: absolute;
     width: 100%;
-    margin-top:10%;
+    margin-top: -4%;
 }
 
 #gameTitleSpan {
@@ -41,7 +41,6 @@ html {
     border-radius: 25px;
     width: 100%;
     height: 25%;
-
 }
 
 #startButtonDiv {
