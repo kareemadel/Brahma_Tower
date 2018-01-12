@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Brahma Tower</title>
+    <link rel="shortcut icon" href="assets/images/towr.ico"/>
     <link rel="stylesheet" href="css/audio_button.css">
     <link rel="stylesheet" href="css/page1.css">
     <link rel="stylesheet" href="css/page2.css">
@@ -22,6 +23,11 @@
     <a id="playPause" href="#" class="speaker">
         <span></span>
         </a>
+
+    <audio id="won">
+        <source src="assets/sounds/won.mp3" type="audio/mp3">
+    </audio>
+
     <img class="badges" id="firstGameBadge" src="assets/images/1stgame(g).png" />
     <img class="badges" id="nearOptBadge" src="assets/images/nearopt(g).png" />
     <img class="badges" id="optimumBadge" src="assets/images/optimum(g).png" />
@@ -42,13 +48,42 @@
 
     <div id="page2" style="display: none;">
         <h1 id="gameTitle2"><span data-shadow-text="Text-Shadow" id="gameTitleSpan">Brahma Tower</span></h1>
+       
+        <div id="instructions"><p>
+            Welcome to Brahma Tower. Your mission is simple, just move all the disks from the leftmost tower to the rightmost tower. Remember that only one disk may be moved at a time, and it is not possible to place a bigger disk on a smaller one.
+        </p></div>
+
         <div id="startButtonDiv">
-            <button class="btn" id="startButton">Start</button>
+            <button class="btn" id="startButton">Lets's start</button>
         </div>
         <div id="continueBtnDiv">
             <button class="btn" id="ContinueBtn">Continue</button>
         </div>
+
+        <div class="box">
+			<a class="button" href="#popup1">Credits</a>
+		</div>
+
+
+		<div id="popup1" class="overlay">
+			<div class="popup">
+			<h2>Credits:</h2>
+			<a class="cls" href="#">&times;</a>
+			<div class="content">
+				An implementation of the Tower of Hanoi in HTML and JavaScript. <br/>
+				Team Members:<br/>
+				1) Amr Essam (Amr-Elnemr).<br/>
+				2) Kareem Adel (kareemadel).<br/>
+				3) Muhammad Majid (plutonium239kraken).<br/>
+				4) Shaimaa Nabil (shaimaanabil).<br/><br/>
+				>>The Tower of Hanoi(another name for this puzzle)is widely believed to have been invented in 1883 by the French mathematician Édouard Lucas.
+			</div>
+			</div>
+		</div>
+
+
     </div>
+
 
     <div id="page3" style="display: none;">
         <div id="header">
@@ -122,7 +157,7 @@
             </a>
         </div>
 
-        <div id="mainMenuButtonDiv">
+        <div id="mainMenuButtonDiv4">
             <button class="btn" id="mainMenuButton4">Main Menu</button>
         </div>
 
@@ -145,7 +180,7 @@
             <p>Bulbasaur</p>
             <p>Squirtle</p>
         </div>
-        <div id="mainMenuButtonDiv">
+        <div id="mainMenuButtonDiv5">
             <button class="btn" id="mainMenuButton01">Main Menu</button>
         </div>
     </div>

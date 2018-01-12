@@ -76,9 +76,10 @@ body {
     height: 80px;
 }
 
-#mainMenuButtonDiv {
-    position: absolute;
-    top: 576px;
+#mainMenuButtonDiv4 {
+    position: fixed;
+    left: 13px;
+    top: 646px;
     width: 200px;
     height: 80px;
 }

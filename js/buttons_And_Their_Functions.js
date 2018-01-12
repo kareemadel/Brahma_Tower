@@ -159,9 +159,9 @@ function Submit_btn(e) {
     var nameElement = document.getElementById("playerName");
     var userName = nameElement.value;
     if (validateName(userName) == "inv_len") {
-        alert("Your username should be between 3 to 15 characters.");
+        alert("Username has to be between 3 and 15 characters.");
     } else if (validateName(userName) == "notchar") {
-        alert("Please enter only alphabetical letters.");
+        alert("Only alphabetical letters are allowed.");
     } else {
         nameElement.value = "";
         newSession = new session(userName);
@@ -413,6 +413,7 @@ function handleTowers(e) {
                     newGame.endTime = Date.now();
                     newSession.addGame(newGame);
                     handleBadges_Message();
+                    document.getElementById("won").play();
                 }
                 VictoryMessage.style.display = "block";
             }
