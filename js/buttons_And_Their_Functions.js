@@ -91,10 +91,6 @@ function onclickAttrIntializer() {
     clickables.page6.tower2.addEventListener('click', handleTowers);
 }
 //page 1
-function validateName(userName) {
-    var pattern = new RegExp("^[a-zA-Z][a-zA-Z0-9_]{3,14}$");
-    return pattern.test(userName);
-}
 
 function Submit_btn(e) {
     /*
@@ -105,13 +101,24 @@ function Submit_btn(e) {
     */
 
     // body...
+    function validateName(IdForTextInput) {
+        var content = document.getElementById(IdForTextInput).value;
+        var Pattern = new RegExp("^[a-zA-Z]{3,15}$");
+        if (content.length < 3 || content.length > 15) {
+            console.log('inv_len');
+            return "inv_len";
+        } else if (Pattern.test(content) == false) {
+            console.log('notchar');
+            return "notchar";
+        }
+    }
     e.preventDefault();
-    var userName = document.getElementById("playerName");
-    if (validateName(userName.value)) {
-        newSession = new session(userName);
-        flip(0, 2);
+    if (validateName("playerName") == "inv_len") {
+        alert("Your username should be between 3 to 15 characters.");
+    } else if (validateName("playerName") == "notchar") {
+        alert("Please enter only alphabetical letters.");
     } else {
-        alert("Invalid Name");
+        flip(0, 2);
     }
 
 }
