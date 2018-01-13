@@ -1,5 +1,5 @@
 function flip(current_page, target_page) {
-    for (var i = 1; i < 7; i++) {
+    for (var i = 1; i < 8; i++) {
         document.getElementById("page" + i).style.display = "none";
     }
     document.getElementById("page" + target_page).style.display = "";
@@ -16,7 +16,8 @@ var clickables = {
 
     page2: {
         StartBtn: document.getElementById("startButton"),
-        continueBtn: document.getElementById("ContinueBtn")
+        continueBtn: document.getElementById("ContinueBtn"),
+        tobadges: document.getElementById("Bgs")
     },
 
     page3: {
@@ -51,6 +52,10 @@ var clickables = {
         restartBtn: document.getElementById("restartButton"),
         mainMenuBtn6: document.getElementById("mainMenuButton6"),
         optimumSolutionButton: document.getElementById("optimumSolutionButton")
+    },
+
+    page7: {
+        mainMenuBtn7:document.getElementById("mainMenuButtonbdg")
     }
 };
 var globalElements = {
@@ -128,11 +133,17 @@ function onclickAttrIntializer() {
     clickables.page6.mainMenuBtn6.addEventListener('click', mainMenu_btn);
     clickables.page6.restartBtn.addEventListener('click', restart_btn);
     clickables.page6.optimumSolutionButton.addEventListener('click', function() {
-        showOptimalSolution(300);
+        showOptimalSolution(800);
+
+    clickables.page7.mainMenuBtn7.addEventListener('click', mainMenu_btn);
+
+    clickables.page2.tobadges.addEventListener('click', toBadges);
     });
     clickables.page6.tower0.addEventListener('click', handleTowers);
     clickables.page6.tower1.addEventListener('click', handleTowers);
     clickables.page6.tower2.addEventListener('click', handleTowers);
+
+
 }
 //page 1
 
@@ -181,6 +192,12 @@ function Start_btn(e) {
     // body...
     flip(0, 3);
 }
+
+function toBadges() {
+    
+    flip(0, 7);
+}
+
 
 
 

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/page4.css">
     <link rel="stylesheet" href="css/page5.css">
     <link rel="stylesheet" type="text/css" href="css/page6.css">
+    <link rel="stylesheet" href="css/page7.css">
     <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/victory_message.css">
 </head>
@@ -58,6 +59,10 @@
         </div>
         <div id="continueBtnDiv">
             <button class="btn" id="ContinueBtn">Continue</button>
+        </div>
+
+        <div>
+            <button class="button" id="Bgs">Badges</button>
         </div>
 
         <div class="box">
@@ -219,7 +224,37 @@
                 <p id="VictoryMessageBody">You Have Won.</p>
             </div>
         </div>
+	</div>
 
+
+	<div id="page7" style="display: none;">
+		<div id="tbgd"><p>Badges</p></div>
+
+		<div>
+			<img id="badge1" src="assets/images/1stgame.png" />
+			<p class='explain'>Winning your First game</p>
+		</div>
+
+	    <div>
+	    	<img id="badge2" src="assets/images/nearopt.png" />
+	    	<p class='explain'>Winning near the optimum number of moves</p>
+	    </div>
+
+	    <div>
+	    	<img id="badge3" src="assets/images/optimum.png" />
+	    	<p class='explain'>Winning with the perfect number of moves</p>
+	    </div>
+
+	    <div>
+	    	<img id="badge4" src="assets/images/insane.png" />
+	    	<p class='explain'>Winning the INSANE level</p>
+	    </div>
+
+    	<div id="bdg2main"></div>
+        <button class="btn" id="mainMenuButtonbdg">Main Menu</button>
+	</div>
+
+	
         <script type="text/javascript" src="js/audio_button.js"></script>
         <script type="text/javascript" src="js/buttons_And_Their_Functions.js"></script>
         <script type="text/javascript" src="js/randomize_pg3.js"></script>

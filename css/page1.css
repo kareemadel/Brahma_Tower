@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
+
 #gameTitle1 {
     font-family: 'Lily Script One', cursive;
     font-weight: bold;
@@ -47,6 +48,10 @@ body {
     width: 100%;
     height: 100%;
     background: white;
+    /*background-image: url("../assets/images/kashi.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
 }
 
 .login {
