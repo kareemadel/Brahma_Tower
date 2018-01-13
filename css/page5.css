@@ -69,6 +69,7 @@ html {
     cursor: pointer;
     padding: 9px 10px;
     font-size: 30px;
+    font-weight: bold;
     border-radius: 25px;
     width: 200px;
     height: 80px;
@@ -80,5 +81,5 @@ html {
     top: 646px;
     width: 200px;
     height: 80px;
-    
+
 }

@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet");
 @import url("https://fonts.googleapis.com/css?family=Erica One" rel="stylesheet");
-
-#tbgd{
+#tbgd {
     color: black;
     font-family: 'Erica One', cursive;
     text-align: center;
@@ -13,22 +12,42 @@
 }
 
 .explain {
-  color: black;
-  font-family: 'Pacifico', cursive;
-  font-size: 1.5em;
-  font-weight: bold;
-  font-style: italic;
-  letter-spacing: 0.1em;
-  line-height: 2.2em;
-  position: relative;
-  bottom: -30px;
-  margin-left: 36%;
-  /*margin-right: 25%;*/
-  text-align: left;
-  display:inline-block;
+    color: black;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    line-height: 2.2em;
+    position: relative;
+    bottom: -30px;
+    margin-left: 36%;
+    /*margin-right: 25%;*/
+    text-align: left;
+    display: inline-block;
 }
 
-#badge1{
+#exp1 {
+    position: relative;
+    left: -23px;
+}
+
+#exp2 {
+    position: relative;
+    left: 10px;
+}
+
+#exp3 {
+    position: relative;
+    left: -31px;
+}
+
+#exp4 {
+    position: relative;
+    left: -50px;
+}
+
+#badge1 {
     width: 120px;
     position: relative;
     left: 300px;
@@ -36,7 +55,8 @@
     text-align: center;
     vertical-align: top;
 }
-#badge2{
+
+#badge2 {
     width: 80px;
     position: relative;
     left: 320px;
@@ -44,7 +64,8 @@
     text-align: center;
     vertical-align: top;
 }
-#badge3{
+
+#badge3 {
     width: 120px;
     position: relative;
     left: 300px;
@@ -52,7 +73,8 @@
     text-align: center;
     vertical-align: top;
 }
-#badge4{
+
+#badge4 {
     width: 140px;
     position: relative;
     left: 291px;
@@ -61,24 +83,21 @@
     vertical-align: top;
 }
 
-#mainMenuButtonbdg,{
-    background: #1abc9c;
-    border: none;
-    color: black;
+#mainMenuButtonbdg {
+    background-color: #1abc9c;
+    border: 2px solid black;
+    border-radius: 25px;
     cursor: pointer;
-    padding: 18px 10px;
+    color: black;
+    padding: 9px 10px;
     font-size: 30px;
     font-weight: bold;
-    border-radius: 25px;
-    width: 200px;
-    height: 80px;
 }
 
 #bdg2main {
+    width: 160px;
+    height: 60px;
     position: fixed;
-    left: 13px;
-    top: 646px;
-    width: 200px;
-    height: 80px;
+    bottom: 10px;
+    left: 10px;
 }
-

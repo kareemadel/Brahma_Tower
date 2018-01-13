@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Brahma Tower</title>
-    <link rel="shortcut icon" href="assets/images/towr.ico"/>
+    <link rel="shortcut icon" href="assets/images/towr.ico" />
     <link rel="stylesheet" href="css/audio_button.css">
     <link rel="stylesheet" href="css/page1.css">
     <link rel="stylesheet" href="css/page2.css">
@@ -49,42 +49,37 @@
 
     <div id="page2" style="display: none;">
         <h1 id="gameTitle2"><span data-shadow-text="Text-Shadow" id="gameTitleSpan">Brahma Tower</span></h1>
-       
-        <div id="instructions"><p>
-            Welcome to Brahma Tower. Your mission is simple, just move all the disks from the leftmost tower to the rightmost tower. Remember that only one disk may be moved at a time, and it is not possible to place a bigger disk on a smaller one.
-        </p></div>
+
+        <div id="instructions">
+            <p>
+                Welcome to Brahma Tower. Your mission is simple, just move all the disks from the leftmost tower to the rightmost tower. Remember that only one disk may be moved at a time, and it is not possible to place a bigger disk on a smaller one.
+            </p>
+        </div>
 
         <div id="startButtonDiv">
             <button class="btn" id="startButton">Lets's start</button>
-        </div>
-        <div id="continueBtnDiv">
+            <div id="divider"></div>
             <button class="btn" id="ContinueBtn">Continue</button>
         </div>
 
         <div>
-            <button class="button" id="Bgs">Badges</button>
+            <button class="button" id="Bgs">View Badges</button>
         </div>
 
         <div class="box">
-			<a class="button" href="#popup1">Credits</a>
-		</div>
+            <a class="button" href="#popup1">Credits</a>
+        </div>
 
 
-		<div id="popup1" class="overlay">
-			<div class="popup">
-			<h2>Credits:</h2>
-			<a class="cls" href="#">&times;</a>
-			<div class="content">
-				An implementation of the Tower of Hanoi in HTML and JavaScript. <br/>
-				Team Members:<br/>
-				1) Amr Essam (Amr-Elnemr).<br/>
-				2) Kareem Adel (kareemadel).<br/>
-				3) Muhammad Majid (plutonium239kraken).<br/>
-				4) Shaimaa Nabil (shaimaanabil).<br/><br/>
-				>>The Tower of Hanoi(another name for this puzzle)is widely believed to have been invented in 1883 by the French mathematician Édouard Lucas.
-			</div>
-			</div>
-		</div>
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Credits:</h2>
+                <a class="cls" href="#">&times;</a>
+                <div class="content">
+                    An implementation of the Tower of Hanoi in HTML and JavaScript. <br/> Team Members:<br/> 1) Amr Essam (Amr-Elnemr).<br/> 2) Kareem Adel (kareemadel).<br/> 3) Muhammad Majid (plutonium239kraken).<br/> 4) Shaimaa Nabil (shaimaanabil).<br/><br/>                    >>The Tower of Hanoi(another name for this puzzle)is widely believed to have been invented in 1883 by the French mathematician Édouard Lucas.
+                </div>
+            </div>
+        </div>
 
 
     </div>
@@ -115,11 +110,11 @@
         </div>
 
         <div>
-            <button class="button" id="mainMenuBtn">Main Menu</button>
+            <button class="button" id="mainMenuBtn">Home</button>
         </div>
 
         <div>
-            <button class="button" id="skipBtn">Skip</button>
+            <button class="button" id="skipBtn">Play</button>
         </div>
     </div>
 
@@ -163,7 +158,7 @@
         </div>
 
         <div id="mainMenuButtonDiv4">
-            <button class="btn" id="mainMenuButton4">Main Menu</button>
+            <button class="btn" id="mainMenuButton4">Home</button>
         </div>
 
 
@@ -186,11 +181,11 @@
             <p>Squirtle</p>
         </div>
         <div id="mainMenuButtonDiv5">
-            <button class="btn" id="mainMenuButton01">Main Menu</button>
+            <button class="btn" id="mainMenuButton01">Home</button>
         </div>
     </div>
 
-<!-- added tabindex to capture keyboard events -->
+    <!-- added tabindex to capture keyboard events -->
     <div id="page6" style="display: none;" tabindex="0">
         <div id="game">
             <div id="moves"></div>
@@ -204,7 +199,7 @@
             <button class="btn" id="restartButton">Restart</button>
         </div>
         <div id="mainMenuButtonDiv">
-            <button class="btn" id="mainMenuButton6">Main Menu</button>
+            <button class="btn" id="mainMenuButton6">Home</button>
         </div>
         <div id="optimumSolutionButtonDiv">
             <button class="btn" id="optimumSolutionButton">Optimum Solution</button>
@@ -224,45 +219,51 @@
                 <p id="VictoryMessageBody">You Have Won.</p>
             </div>
         </div>
-	</div>
+    </div>
 
 
-	<div id="page7" style="display: none;">
-		<div id="tbgd"><p>Badges</p></div>
+    <div id="page7" style="display: none;">
+        <div id="tbgd">
+            <p>Badges</p>
+        </div>
 
-		<div>
-			<img id="badge1" src="assets/images/1stgame.png" />
-			<p class='explain'>Winning your First game</p>
-		</div>
+        <div>
+            <img id="badge1" src="assets/images/1stgame.png" />
+            <p id="exp1" class='explain'>Winning your First game</p>
+        </div>
 
-	    <div>
-	    	<img id="badge2" src="assets/images/nearopt.png" />
-	    	<p class='explain'>Winning near the optimum number of moves</p>
-	    </div>
+        <div>
+            <img id="badge2" src="assets/images/nearopt.png" />
+            <p id="exp2" class='explain'>Winning near the optimum number of moves</p>
+        </div>
 
-	    <div>
-	    	<img id="badge3" src="assets/images/optimum.png" />
-	    	<p class='explain'>Winning with the perfect number of moves</p>
-	    </div>
+        <div>
+            <img id="badge3" src="assets/images/optimum.png" />
+            <p id="exp3" class='explain'>Winning with the perfect number of moves</p>
+        </div>
 
-	    <div>
-	    	<img id="badge4" src="assets/images/insane.png" />
-	    	<p class='explain'>Winning the INSANE level</p>
-	    </div>
+        <div>
+            <img id="badge4" src="assets/images/insane.png" />
+            <p id="exp4" class='explain'>Winning the INSANE level</p>
+        </div>
 
-    	<div id="bdg2main"></div>
-        <button class="btn" id="mainMenuButtonbdg">Main Menu</button>
-	</div>
+        <div>
+            <button class="button" id="mainMenuButtonbdg">Back</button>
+        </div>
+    </div>
 
-	
-        <script type="text/javascript" src="js/audio_button.js"></script>
-        <script type="text/javascript" src="js/buttons_And_Their_Functions.js"></script>
-        <script type="text/javascript" src="js/randomize_pg3.js"></script>
-        <script type="text/javascript" src="js/disk.js"></script>
-        <script type="text/javascript" src="js/game.js"></script>
-        <script type="text/javascript" src="js/session.js"></script>
-        <script type="text/javascript" src="js/tower.js"></script>
-        <script type="text/javascript" src="js/test.js"></script>
+
+    <script type="text/javascript" src="js/helper_functions.js"></script>
+    <script type="text/javascript" src="js/buttons_And_Their_Functions.js"></script>
+    <script type="text/javascript" src="js/randomize_pg3.js"></script>
+    <script type="text/javascript" src="js/disk.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/session.js"></script>
+    <script type="text/javascript" src="js/tower.js"></script>
+    <script type="text/javascript" src="js/DOM_elements.js"></script>
+    <script type="text/javascript" src="js/audio_button.js"></script>
+    <script type="text/javascript" src="js/events.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
 </body>
 
 </html>
