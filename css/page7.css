@@ -92,12 +92,14 @@
     padding: 9px 10px;
     font-size: 30px;
     font-weight: bold;
-}
-
-#bdg2main {
     width: 160px;
     height: 60px;
-    position: fixed;
+    position: relative;
     bottom: 10px;
-    left: 10px;
+}
+
+#page7 {
+    position: relative;
+    top: -80px;
+    transform: scale(0.90);
 }
