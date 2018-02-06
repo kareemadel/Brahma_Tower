@@ -16,7 +16,11 @@ To move a disk:
 
 
 Team Members:
-1) Amr Essam (Amr-Elnemr).
-2) Kareem Adel (kareemadel).
-3) Muhammad Majid (plutonium239kraken).
-4) Shaimaa Nabil (shaimaanabil).
+
+	1) Amr Essam (Amr-Elnemr).
+	
+	2) Kareem Adel (kareemadel).
+	
+	3) Muhammad Majid (plutonium239kraken).
+	
+	4) Shaimaa Nabil (shaimaanabil).
